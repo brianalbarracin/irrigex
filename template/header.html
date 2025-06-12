@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #007447;">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="assets/src/images/Logo-Irrigex.png?v=2" width="100" height="40" alt="Logo">
+    </a>
+
+    <!-- País destino -->
+    <span class="text-white me-3">
+      <i class="bi bi-geo-alt-fill"></i> Envios a <strong>Colombia</strong>
+    </span>
+
+    <!-- Search bar -->
+    <form class="d-flex flex-grow-1 mx-3" role="search">
+      <select class="form-select w-auto me-2">
+        <option>Todos</option>
+        <option>Productos</option>
+      </select>
+      <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+      <button class="btn btn-warning" type="submit"><i class="bi bi-search"></i></button>
+    </form>
+
+    <!-- Login y Carrito -->
+    <div class="d-flex align-items-center">
+      <a href="#" class="text-white me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <small>Hola, inicia sesión</small><br>
+        <strong>Cuenta y Listas</strong>
+      </a>
+      <a href="#" class="text-white me-3">
+        <small>Devoluciones</small><br>
+        <strong>y Pedidos</strong>
+      </a>
+      <a href="#" class="text-white position-relative">
+        <i class="bi bi-cart3 fs-4"></i>
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+        <span>Carrito</span>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="row" id="main-nav">
+  <div class="col-12">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link text-verde page" id='btn-inicio' aria-current="page" href="#" data-tag="inicio">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-verde page" id='btn-mision' aria-current="page" href="#" data-tag="mision">Empresa</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-verde page" id='btn-vision' aria-current="page" href="#" data-tag="vision">Riego</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-verde page" id='btn-nosotros' aria-current="page" href="#"
+          data-tag="nosotros">Nosotros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-verde page" id='btn-contactenos' aria-current="page" href="#"
+          data-tag="contactenos">Contáctenos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-verde " href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Ingreso</a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Inicio de Sesión</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="text-center mb-3">
+          <!--<button class="btn btn-outline-dark me-2" id="loginMicrosoft">
+            <img src="https://img.icons8.com/color/16/000000/microsoft.png" /> Microsoft
+          </button>-->
+          <button class="btn-google" id="loginGoogle">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo" class="me-2" />
+            Continuar con Google
+          </button>
+          <hr class="my-3">
+          <p class="text-muted">O inicia sesión con correo</p>
+        </div>
+
+        <form id="login-form" action="#">
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo de Ingreso</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">No se compartira su correo con nadie mas.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember-user" name="remember-user">
+            <label class="form-check-label" for="remember-user">Recordar datos</label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="display: none;">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btnLogin">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="assets/js/header.js"></script>
+
+<!-- --
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="assets/js/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script> -->

@@ -1,0 +1,829 @@
+#content-header {
+    position: relative;
+}
+
+#logo {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    left: 0px;
+}
+
+/*#data-user {
+    top: 58px;
+    right: 0px;
+    position: absolute;
+}*/
+
+/*#main-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #999;
+    padding: 20px;
+}*/
+
+#main-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*border: 1px solid #999;*/
+    padding: 0px;
+}
+
+#main-nav {
+    border-bottom: 1px dotted #999;
+}
+
+br {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input.error,
+select.error {
+    border-color: red !important;
+    color: red !important;
+}
+
+.btns {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+}
+
+.btns.editar {
+    background-image: url(../src/images/editar.png);
+}
+
+.btns.eliminar {
+    background-image: url(../src/images/eliminar.png);
+}
+
+
+#xmask {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    opacity: 0;
+    z-index: -10000;
+
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+#xmask.show {
+    opacity: 1;
+    z-index: 10000;
+    display: block;
+}
+
+#xmask .content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8%;
+    align-items: center;
+    padding: 60px 90px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 200px;
+    max-height: 150px;
+    top: -30%;
+
+    transition-property: top;
+    transition-duration: 2s;
+}
+
+#xmask.show .content {
+    top: 30%;
+}
+
+
+#alerts {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 10000;
+    width: 450px;
+    margin: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+nav.navbar {
+    background-color: #007447;
+    /* tono más cercano al de Amazon */
+}
+
+.nav-pills .nav-link {
+    color: #007447 !important;
+    border-radius: 0 !important;
+}
+
+/* Estilo del botón activo */
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:active,
+.nav-pills .nav-link:focus {
+    background-color: #007447 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+/* Hover */
+.nav-pills .nav-link:hover {
+    color: #005f38 !important;
+}
+
+.nav-pills .nav-link.active:hover {
+    color: white !important;
+}
+
+/* CSS PARA PRODUCTOS*/
+
+body {
+    margin-top: 20px;
+    background: #f1f2f7;
+}
+
+/*panel*/
+.panel {
+    border: none;
+    box-shadow: none;
+}
+
+.panel-heading {
+    border-color: #eff2f7;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.panel-title {
+    color: #2A3542;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/*product list*/
+
+.prod-cat li a {
+    border-bottom: 1px dashed #d9d9d9;
+}
+
+.prod-cat li a {
+    color: #3b3b3b;
+}
+
+.prod-cat li ul {
+    margin-left: 30px;
+}
+
+.prod-cat li ul li a {
+    border-bottom: none;
+}
+
+.prod-cat li ul li a:hover,
+.prod-cat li ul li a:focus,
+.prod-cat li ul li.active a,
+.prod-cat li a:hover,
+.prod-cat li a:focus,
+.prod-cat li a.active {
+    background: none;
+    color: #ff7261;
+}
+
+.pro-lab {
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+.pro-sort {
+    padding-right: 20px;
+    float: left;
+}
+
+.pro-page-list {
+    margin: 5px 0 0 0;
+}
+
+.product-list img {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+}
+
+.product-list .pro-img-box {
+    position: relative;
+}
+
+.adtocart {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;     /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    color: yellow;
+    font-size: 18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+    overflow: hidden; /* Previene que se desborde */
+}
+
+.adtocart i {
+    color: yellow; /* Asegura el color del ícono */
+}
+
+.pro-title {
+    color: #5A5A5A;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.product-list .price {
+    color: #fc5959;
+    font-size: 15px;
+}
+
+.pro-img-details {
+    margin-left: -15px;
+}
+
+.pro-img-details img {
+    width: 100%;
+}
+
+.pro-d-title {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.product_meta {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+.product_meta span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product_meta a,
+.pro-price {
+    color: #fc5959;
+}
+
+.pro-price,
+.amount-old {
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.amount-old {
+    text-decoration: line-through;
+}
+
+.quantity {
+    width: 120px;
+}
+
+.pro-img-list {
+    margin: 10px 0 0 -15px;
+    width: 100%;
+    display: inline-block;
+}
+
+.pro-img-list a {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.pro-d-head {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+.nav-link.text-verde {
+    color: #007447 !important;
+}
+
+.nav-link.text-verde:hover {
+    color: #005f38 !important;
+}
+
+/* Active state */
+.nav-link.text-verde.active,
+.nav-link.text-verde:focus {
+    background-color: #007447 !important;
+    color: white !important;
+}
+
+/*.nav-pills .nav-link.text-verde .active {
+    color: white !important;
+}*/
+
+.nav-pills .nav-link.text-verde:hover {
+    color: #005f38 !important;
+}
+
+.nav-pills .nav-link.text-verde.active {
+    background-color: #007447 !important;
+    color: white !important;
+}
+
+/*product catalogue RIEGO*/
+
+.panel {
+    border: none;
+    box-shadow: none;
+}
+
+.panel-heading {
+    border-color: #eff2f7;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.panel-title {
+    color: #2A3542;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Product List */
+
+.prod-cat,
+.prod-cat ul,
+.prod-cat li {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.prod-cat li {
+    clear: both;
+}
+
+.prod-cat a {
+    color: black;
+    /* Color por defecto */
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.prod-cat a:hover {
+    color: red;
+    /* Cuando el mouse está encima */
+}
+
+.prod-cat a.active {
+    color: red;
+    /* Cuando está seleccionado */
+    font-weight: bold;
+}
+
+.prod-cat li a {
+    border-bottom: 1px dashed #d9d9d9;
+    display: block;
+    white-space: normal;
+    /* Evita que se agrupen en línea */
+    margin-bottom: 5px;
+}
+
+.pro-img-box {
+    position: relative;
+}
+
+.pro-img-box img {
+    width: 100%;
+    height: auto;
+}
+
+/*.adtocart {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 50%;
+}*/
+
+.pro-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 18px;
+    color: #FF6347;
+}
+
+.container.bootdey .row {
+    display: flex;
+    align-items: flex-start;
+}
+
+.col-md-9 {
+    min-height: 600px;
+    /* Ajusta según tu contenido */
+}
+
+/*css para slider*/
+
+#price-range {
+    margin-top: 42px;
+    /* Ajusta el valor según necesites */
+}
+
+.panel-heading:contains("Categorias") {
+    font-weight: bold;
+}
+
+.price-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#price-range {
+    flex: 1;
+    /* El slider se ajusta al ancho disponible */
+}
+
+
+
+.has-submenu>a {
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.submenu a {
+    padding-left: 20px;
+    display: block;
+    color: black;
+}
+
+.submenu a:hover {
+    color: red;
+}
+
+#keyword-search {
+    margin-bottom: 20px;
+    /* Puedes ajustar el valor */
+}
+
+
+/*AQUI COMIENZA EL CSS PARA LA PAGINA DE CONTACTENOS*/
+
+body {
+    margin-top: 0px;
+    background: #eee;
+}
+
+.contact-area {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width:768px) {
+    .contact {
+        margin-bottom: 60px;
+    }
+}
+
+.contact input {
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #232434;
+    font-size: 16px;
+    height: 60px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'poppins', sans-serif;
+    padding-left: 30px;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.contact textarea {
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #232434;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    font-family: 'poppins', sans-serif;
+    padding-left: 30px;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.contact input:focus {
+    background: #fff;
+    border: 1px solid #fff;
+    color: #232434;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 none;
+}
+
+.contact textarea:focus {
+    background: #fff;
+    border: 1px solid #fff;
+    color: #232434;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0 none;
+}
+
+.form-control::placeholder {
+    color: #232434;
+    opacity: 1;
+}
+
+.btn-contact-bg {
+    border-radius: 30px;
+    color: #fff;
+    outline: medium none !important;
+    padding: 15px 27px;
+    text-transform: capitalize;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    background: #007447;
+    font-family: 'poppins', sans-serif;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-contact-bg:hover,
+.btn-contact-bg:focus {
+    background: #232434;
+    color: #fff;
+}
+
+/*START ADDRESS*/
+
+.single_address {
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding-left: 40px;
+}
+
+@media only screen and (max-width:768px) {
+    .single_address {
+        padding-left: 0px;
+    }
+}
+
+.single_address i {
+    background: #f6f6f6;
+    color: #007447;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+    margin-right: 14px;
+    font-size: 22px;
+    -webkit-box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.single_address:hover i {
+    background: #007447;
+    color: #fff;
+}
+
+.single_address h4 {
+    font-size: 18px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    font-weight: 600;
+}
+
+.single_address p {
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.section-title h1 {
+    font-size: 44px;
+    font-weight: 500;
+    margin-top: 0;
+    position: relative;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    padding: 0 10px;
+    width: 70%;
+    margin: auto;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+
+
+/*cartas cuando se entra al admin*/
+
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    background-color: #f8f9fa;
+    /* gris claro */
+}
+
+.card-hover:hover i,
+.card-hover:hover h5 {
+    color: #007447;
+    /* azul Bootstrap */
+}
+
+
+/*A qui comienza el CSS del form persona cuando se ingresa al admin*/
+
+.container-form {
+    max-width: 600px; /* Ajusta esto según lo ancho que lo quieras */
+    margin: 40px auto; /* Centrado horizontal y separación vertical */
+    padding: 0 20px;   /* Márgenes laterales internos */
+  }
+
+  #formulario-persona {
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+ /* aqui comienzan las tarjetas de las direcciones
+
+ .address-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 200px;
+    }
+
+    .add-address {
+      border: 2px dashed #ccc;
+      text-align: center;
+      color: #555;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .add-address:hover {
+      background-color: #f9f9f9;
+    }
+
+    .add-address i {
+      font-size: 2rem;
+    }
+
+    .address-actions a {
+      margin-right: 10px;
+      font-size: 0.9rem;
+    }
+
+    .address-name {
+      font-weight: bold;
+    }*/
+
+
+    /*cartas de riego*/
+
+    .selectable-image {
+    transition: transform 0.3s ease;
+}
+.selectable-image:hover {
+    transform: scale(1.05);
+}
+.card {
+    border-radius: 10px;
+}
+
+a.text-decoration-none.text-dark:hover {
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.95;
+}
+.selectable-image {
+    transition: transform 0.3s ease;
+}
+.selectable-image:hover {
+    transform: scale(1.03);
+}
+.card {
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/*MOdal para tarjeta*/
+
+ #btn-agregar-tarjeta {
+        font-size: 0.9rem;
+        text-decoration: underline;
+        color: #007185;
+        cursor: pointer;
+    }
+
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    /*MGoogle boton*/
+
+    .btn-google {
+            background-color: white;
+            border: 1.5px solid #dadce0 !important;
+            color: #3c4043;
+            font-weight: 500;
+            border-radius: 999px;
+            padding: 10px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-shadow: 0 0 0 1px #dadce0;
+        }
+
+        .btn-google:hover {
+            background-color: #f0f0f0;
+            color: #3c4043;
+            border: 1.5px solid #c0c0c0;
+        }
+
+        .btn-google img {
+            height: 18px;
+            width: 18px;
+        }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Misión y Visión | Irrigex</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .hero {
+      width: 100%;
+      height: 300px;
+      background: url('assets/src/images/Fondo_empresa.png?v=2') no-repeat center center/cover;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.5em;
+      color: #007447;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 0 30px 60px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 320px;
+      padding: 30px 25px;
+      position: relative;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .card.mision::before { background-color: #e74c3c; }
+    .card.vision::before { background-color: #00bcd4; }
+    .card.valores::before { background-color: #f1c40f; }
+
+    .card i {
+      font-size: 2.8rem;
+      color: #007447;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+   /* @media (max-width: 768px) {
+      .hero {
+        height: 200px;
+      }
+
+      .container {
+        padding: 0 20px 40px;
+      }
+    }*/
+  </style>
+</head>
+<body>
+
+  <!-- Imagen superior -->
+  <div class="hero"></div>
+
+  <!-- Título -->
+  <h2 class="section-title">Nuestra Esencia</h2>
+
+  <!-- Tarjetas -->
+  <div class="container">
+    <div class="card mision">
+      <i class="fas fa-bullseye"></i>
+      <h3>Misión</h3>
+      <p>
+        Comercializar soluciones integrales en sistemas de riego, línea de incendio e industrial, ofreciendo productos de calidad y asesoría técnica para el desarrollo eficiente del sector agrícola e industrial.
+      </p>
+    </div>
+
+    <div class="card vision">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Visión</h3>
+      <p>
+        Ser líderes en el mercado nacional en soluciones de riego y líneas industriales, destacándonos por la innovación, el compromiso con nuestros clientes y la sostenibilidad de nuestras acciones.
+      </p>
+    </div>
+
+    <div class="card valores">
+      <i class="fas fa-balance-scale"></i>
+      <h3>Valores</h3>
+      <p>
+        Compromiso, honestidad, responsabilidad, innovación y servicio al cliente son los pilares que guían cada una de nuestras acciones como empresa.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

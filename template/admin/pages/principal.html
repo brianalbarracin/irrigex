@@ -1,0 +1,48 @@
+
+<div class="container py-4">
+    <div class="row g-4">
+        <!-- Tarjeta 1 -->
+        <div class="col-md-4">
+            <div class="card card-hover shadow-sm h-100 rounded-4 p-3" onclick="getPage('ordenes', rootPath)">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-bag-check fs-2 me-2"></i>
+                    <h5 class="mb-0">Tus órdenes</h5>
+                </div>
+                <p>Sigue, devuelve, cancela ordenes o compra de nuevo</p>
+                <div class="text-end">
+                    <i class="bi bi-plus-circle fs-5"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4">
+            <div class="card card-hover shadow-sm h-100 rounded-4 p-3" onclick="getPage('direcciones', rootPath)">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-house-door fs-2 me-2"></i>
+                    <h5 class="mb-0">Tus Direcciones</h5>
+                </div>
+                <p>Edita, quita o coloca una dirección nueva</p>
+                <div class="text-end">
+                    <i class="bi bi-plus-circle fs-5"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4">
+            <div class="card card-hover shadow-sm h-100 rounded-4 p-3" onclick="loadPage('recogidas', 'admin')">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-credit-card fs-2 me-2"></i>
+                    <h5 class="mb-0">Tus pagos</h5>
+                </div>
+                <p>Mira todas las transacciones, maneja tus métodos de pago y otras configuraciones</p>
+                <div class="text-end">
+                    <i class="bi bi-plus-circle fs-5"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/admin/principal.js"></script>

@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #007447;">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="assets/src/images/Logo-Irrigex.png?v=2" width="100" height="40" alt="Logo">
+        </a>
+
+        <!-- País destino -->
+        <span class="text-white me-3">
+            <i class="bi bi-geo-alt-fill"></i> Envios a <strong>Colombia</strong>
+        </span>
+
+        <!-- Search bar -->
+        <form class="d-flex flex-grow-1 mx-3" role="search">
+            <select class="form-select w-auto me-2">
+                <option>Todos</option>
+                <option>Productos</option>
+            </select>
+            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-warning" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+
+        <!-- Login y Carrito -->
+        <div class="d-flex align-items-center">
+            <a href="#" class="text-white me-4 page" id="btn-principal" data-bs-toggle="modal" data-bs-target="#loginModal" data-tag="principal">
+                <span class="d-inline">
+                    <small>Hola, <span class="username-header" id="data-user"></span></small><br>
+                </span>
+                <strong>Cuenta y Listas</strong>
+            </a>
+            <a href="#" class="text-white me-3">
+                <small>Devoluciones</small><br>
+                <strong>y Pedidos</strong>
+            </a>
+            <a href="#" class="text-white position-relative">
+                <i class="bi bi-cart3 fs-4"></i>
+                <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+                <span>Carrito</span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="row" id="main-nav">
+    <div class="col-12">
+        <ul class="nav nav-pills">
+            <li  class="d-none">
+                <div class="dropdown">
+                    <a class="btn btn-secondaryh dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Inmuebles
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item page" href="#" data-tag="inmueble-dashboard">Tablero</a></li>
+                        <li><a class="dropdown-item page" href="#" data-tag="inmueble-form">Crear</a></li>
+                        <li><a class="dropdown-item page" href="#" data-tag="inmueble-list">Listar</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="d-none">
+                <div class="dropdown">
+                    <a class="btn btn-secondaryh dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Personas
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item page" href="#" data-tag="persona-form">Crear</a></li>
+                        <li><a class="dropdown-item page" href="#" data-tag="persona-list">Listar</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-verde page" id='btn-miperfil' aria-current="page" href="#"
+                    data-tag="persona-form"><i class="bi bi-person-circle me-1"></i>Mi perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-verde page" id='btn-vision' aria-current="page" href="#"
+                    data-tag="vision">Riego</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-verde page" id='btn-nosotros' aria-current="page" href="#"
+                    data-tag="carrito"><i class="bi bi-cart3 me-1"></i>Carrito de compras</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-verde" href="http://localhost:8787/api/reportes/productos-mas-vendidos" id="btnReporte">Reporte</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-verde" href="#" id="btnLogout">Salir</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <br>
+</div>
+
+<script src="assets/js/header_admin.js"></script>

@@ -1,0 +1,91 @@
+<h3 class="hidden" id='title-new-persona'>Formulario nueva persona</h3>
+<h3 class="hidden" id='title-edit-persona'>Formulario edicion de persona <label></label></h3>
+<div class="container-form">
+
+    <form id="formulario-persona">
+
+        <h2 class="form-title">Datos personales</h2>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label for="telefono" class="form-label" readonly>Telefono</label>
+                <input type="number" class="form-control" id="telefono">
+            </div>
+            <div class="col-md-4"">
+                <label for=" tipo-identificacion" class="form-label" disabled>Tipo Identificacion</label>
+                <select class="form-select" aria-label="Default select example" id="tipo-identificacion">
+                    <option value="CC">CC</option>
+                    <option value="TI">TI</option>
+                </select>
+            </div>
+            <div class="col-md-4"">
+                <label for=" identificacion" class="form-label" readonly>Identificacion</label>
+                <input type="number" class="form-control" id="identificacion">
+            </div>
+
+        </div>
+        <div class="row mb-3">
+
+
+            <div class="col-md-12">
+                <label for="direccion" class="form-label">Direccion</label>
+                <input type="text" class="form-control" id="direccion">
+            </div>
+
+
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="direccion" class="form-label">Municipio o Ciudad</label>
+                <input type="text" class="form-control" id="ciudad">
+            </div>
+
+            <div class="col-md-4">
+                <label for="municipio" class="form-label">Departamento</label>
+                <select class="form-select" aria-label="Default select example" id="municipio">
+                    <option disabled selected>Seleccione un departamento</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip">
+            </div>
+
+        </div>
+
+         <br>
+
+        <div class="row mt-4">
+            <div class="col text-center d-flex justify-content-center gap-5">
+                <a href="#" class="text-decoration-underline fw-semibold">Cambiar contraseña</a>
+                <a href="#" class="text-decoration-underline fw-semibold">Suspender mi cuenta</a>
+            </div>
+        </div>
+
+        <br>
+
+        <br>
+        <div class="row">
+            <div class="col-12">
+
+                <button type="button" class="btn btn-outline-dark">Regresar</button>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9rXr+uXvyF7tfZpZ0EcODIenJZp2zF0JkzGkZY=" crossorigin="anonymous"></script>
+
+<script src="assets/js/admin/direccion-nueva.js"></script>

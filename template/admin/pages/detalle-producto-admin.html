@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <div class="row">
+        <!-- Imagen principal + miniaturas -->
+        <div class="col-md-5">
+            <img id="product-image" class="img-fluid rounded border mb-3 w-100" />
+            <div id="image-thumbs" class="d-flex gap-2">
+                <!-- Aquí van miniaturas si las hay -->
+            </div>
+        </div>
+
+        <!-- Detalles del producto -->
+        <div class="col-md-7">
+            <h3 id="product-title" class="fw-semibold mb-3"></h3>
+            <div class="mb-2">
+                <span class="badge bg-danger">Oferta por tiempo Limitado</span>
+            </div>
+
+            <div class="mb-3">
+                <span class="text-danger fw-bold fs-3" id="product-price">$0.00</span>
+                <!--<span class="text-muted text-decoration-line-through ms-2 fs-5" id="product-typical">$0.00</span>-->
+            </div>
+
+            <div class="mb-3 text-success fw-semibold">En Stock</div>
+            <p id="product-description"></p>
+
+           
+            <button id="add-to-cart" class="btn btn-warning btn-lg w-100 mb-3">
+                <i class="fa fa-shopping-cart"></i> Añadir al carrito
+            </button>
+
+            <div class="text-muted small">
+                Envio Gratis <strong id="delivery-date">Saturday, June 1</strong> en tu dirección.
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/tuunidad-web/assets/js/admin/detalle-producto-admin.js"></script>
