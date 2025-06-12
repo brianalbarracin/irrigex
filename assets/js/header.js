@@ -65,7 +65,7 @@ $(function () {
 
             console.log("Login::request", request);
 
-            var url = "http://irrigexback.onrender.com/auth/login";
+            var url = "https://irrigexback.onrender.com/auth/login";
             var method = "POST";
 
             var ifSuccessLogin = function (apiResponse) {
