@@ -7,7 +7,7 @@ $(function () {
     return;
   }
 
-  fetch(`http://localhost:8787/orders/user/${dataUser.id}`)
+  fetch(`https://irrigexback.onrender.com/orders/user/${dataUser.id}`)
     .then(response => response.json())
     .then(result => {
       const orders = result.data || [];
