@@ -13,7 +13,7 @@ $(document).ready(function () {
     if (!productId) return;
 
     $.ajax({
-        url: `http://localhost:8787/products/${productId}`,
+        url: `https://irrigexback.onrender.com/products/${productId}`,
         method: "GET",
         success: function (response) {
             const p = response.data;
