@@ -3,7 +3,7 @@ $(function () {
 
     console.log("Cargando estados...");
 
-    fetch("http://localhost:8787/states")
+    fetch("https://irrigexback.onrender.com/states")
         .then(response => response.json())
         .then(data => {
 
@@ -31,7 +31,7 @@ $(function () {
         return;
     }
 
-    fetch(`http://localhost:8787/api/users/email/${user.email}`)
+    fetch(`https://irrigexback.onrender.com/api/users/email/${user.email}`)
         .then(response => response.json())
         .then(data => {
 
@@ -85,27 +85,27 @@ $(function () {
 
         try {
             // 3. Actualizar usuario
-            await fetch(`http://localhost:8787/api/users/${user.id}`, {
+            await fetch(`https://irrigexback.onrender.com/api/users/${user.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userUpdate)
             });
 
             // 4. Consultar si ya tiene dirección registrada
-            const result = await fetch(`http://localhost:8787/addresses/user/${user.id}`);
+            const result = await fetch(`https://irrigexback.onrender.com/addresses/user/${user.id}`);
             const addressList = await result.json();
 
             if (addressList.data && addressList.data.length > 0) {
                 // 4. Tiene dirección → hacer PUT
                 const addressId = addressList.data[0].id;
-                await fetch(`http://localhost:8787/addresses/${addressId}`, {
+                await fetch(`https://irrigexback.onrender.com/addresses/${addressId}`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(addressUpdate)
                 });
             } else {
                 // 5. No tiene dirección → hacer POST
-                await fetch(`http://localhost:8787/addresses/user/${user.id}`, {
+                await fetch(`https://irrigexback.onrender.com/addresses/user/${user.id}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(addressUpdate)
@@ -136,7 +136,7 @@ function guardarNuevaPersona(request) {
         addAlert("Registro creado con exito", "success", 3);
     }
 
-    var url = "http://localhost:8787/persona";
+    var url = "https://irrigexback.onrender.com/persona";
     openLoader();
     callApi(url, "POST", request, ifSuccessNuevaPersona, ifErrorRequest);
 

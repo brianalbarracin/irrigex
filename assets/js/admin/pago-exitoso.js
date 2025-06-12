@@ -23,14 +23,14 @@ $(document).ready(function () {
         return;
     }
 
-    fetch(`http://localhost:8787/orders/check-wompi-status?transactionId=${transactionId}&userId=${userId}&addressId=${addressId}`)
+    fetch(`https://irrigexback.onrender.com/orders/check-wompi-status?transactionId=${transactionId}&userId=${userId}&addressId=${addressId}`)
         .then(res => res.json())
         .then(res => {
             if (res.status === 201) {
                 alert("Orden creada con éxito.");
                 localStorage.removeItem("items-preorden");
                 localStorage.removeItem("direccion-seleccionada");
-                window.location.href = "https://4041-186-86-110-246.ngrok-free.app/tuunidad-web/admin.html";
+                window.location.href = "https://irrigexback.onrender.com/admin.html";
             } else {
                 alert("No se pudo crear la orden: " + res.message);
                 window.location.href = "/carrito.html";

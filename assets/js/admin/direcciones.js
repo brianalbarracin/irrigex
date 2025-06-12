@@ -5,7 +5,7 @@ $(function () {
       return;
     }
 
-    fetch(`http://localhost:8787/addresses/user/${dataUser.id}`)
+    fetch(`https://irrigexback.onrender.com/addresses/user/${dataUser.id}`)
       .then(response => response.json())
       .then(result => {
 

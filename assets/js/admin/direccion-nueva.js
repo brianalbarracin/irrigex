@@ -6,7 +6,7 @@ $(function () {
     }
 
     // 1. Traer info del usuario y llenar campos
-    fetch(`http://localhost:8787/api/users/email/${user.email}`)
+    fetch(`https://irrigexback.onrender.com/api/users/email/${user.email}`)
         .then(response => response.json())
         .then(res => {
             const data = res.data;
@@ -17,7 +17,7 @@ $(function () {
         });
 
     // 2. Cargar departamentos
-    fetch("http://localhost:8787/states")
+    fetch("https://irrigexback.onrender.com/states")
         .then(res => res.json())
         .then(data => {
             const $select = $("#municipio");
@@ -50,7 +50,7 @@ $(function () {
             country: "Colombia"
         };
 
-        fetch(`http://localhost:8787/addresses/user/${user.id}`, {
+        fetch(`https://irrigexback.onrender.com/addresses/user/${user.id}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(nuevaDireccion)

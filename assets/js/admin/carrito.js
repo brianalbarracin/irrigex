@@ -10,7 +10,7 @@ $(document).ready(function () {
     }
 
     function fetchCartItems(userId) {
-        fetch(`http://localhost:8787/cart/${userId}`)
+        fetch(`https://irrigexback.onrender.com/cart/${userId}`)
             .then(res => res.json())
             .then(res => {
                 if (res.status !== 200) throw new Error(res.message || "Error al obtener el carrito");
@@ -149,7 +149,7 @@ $(document).ready(function () {
 
         const userId = getUserId();
 
-        fetch(`http://localhost:8787/cart/${userId}/update?productId=${item.productId}&quantity=${newQuantity}`, {
+        fetch(`https://irrigexback.onrender.com/cart/${userId}/update?productId=${item.productId}&quantity=${newQuantity}`, {
             method: "PUT"
         })
             .then(res => {
@@ -166,7 +166,7 @@ $(document).ready(function () {
 
         const userId = getUserId();
 
-        fetch(`http://localhost:8787/cart/${userId}/remove?productId=${item.productId}`, {
+        fetch(`https://irrigexback.onrender.com/cart/${userId}/remove?productId=${item.productId}`, {
             method: "DELETE"
         })
             .then(res => {

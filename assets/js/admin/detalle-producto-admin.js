@@ -42,7 +42,7 @@ $(document).ready(function () {
             $("#add-to-cart").off("click").on("click", function () {
 
                 console.log("Botón 'Añadir al carrito' registrado");
-                fetch(`http://localhost:8787/cart/${dataUser.id}/add?productId=${p.id}&quantity=1`, {
+                fetch(`https://irrigexback.onrender.com/cart/${dataUser.id}/add?productId=${p.id}&quantity=1`, {
                     method: "POST",
                                         // Si tu endpoint requiere un body JSON, lo agregas aquí. Si no, puedes omitir 'body'
                 })
