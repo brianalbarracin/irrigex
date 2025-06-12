@@ -104,7 +104,7 @@ $(function () {
 //boton de google
     $("#loginGoogle").on("click", function () {
     // Redirigir a la URL de OAuth2 Google
-    window.location.href = "http://localhost:8787/oauth2/authorization/google";
+    window.location.href = "https://irrigexback.onrender.com/oauth2/authorization/google";
   });
 
 
