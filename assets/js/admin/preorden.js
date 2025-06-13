@@ -166,7 +166,8 @@ $(document).ready(function () {
 
     $("#confirmarPagoCasa").on("click", function () {
         const userId = dataUser?.id;
-        const addressId = direccion?.id;
+        const direccionSeleccionada = JSON.parse(localStorage.getItem("direccion-seleccionada"));
+        const addressId = direccionSeleccionada?.id;
 
         if (!userId || !addressId) {
             alert("Faltan datos del usuario o la dirección.");
