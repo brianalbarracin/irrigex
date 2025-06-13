@@ -51,7 +51,7 @@ $(document).ready(function () {
                         <input type="checkbox" class="form-check-input select-item" ${item.selected ? "checked" : ""} />
                     </div>
                     <div class="flex-shrink-0 me-3">
-                        <img src="/tuunidad-web/${fullImgUrl}" alt="${item.productName}" class="product-img" />
+                        <img src="${fullImgUrl}" alt="${item.productName}" class="product-img" />
                     </div>
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between">
