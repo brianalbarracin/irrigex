@@ -144,7 +144,7 @@ $(document).ready(function () {
 
             const valorCentavos = Math.round(total * 100);
             const referencia = "pedido_" + Math.floor(Math.random() * 1000000000);
-            const encodedRedirectURL = encodeURIComponent("https://irrigexback.onrender.com/template/admin/pages/pago-exitoso.html");
+            const encodedRedirectURL = encodeURIComponent("https://irrigex-front.onrender.com/template/admin/pages/pago-exitoso.html");
             const publicKey = "pub_test_U0cv8Y3HoE8OGb5iLSmoPo3pon27d1e5";
             const currency = "COP";
             const integritySecret = "test_integrity_ZZk4FdVEjZssNCbT6YWmeyFgqmbPZKqi"

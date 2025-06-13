@@ -30,7 +30,7 @@ $(document).ready(function () {
                 alert("Orden creada con éxito.");
                 localStorage.removeItem("items-preorden");
                 localStorage.removeItem("direccion-seleccionada");
-                window.location.href = "https://irrigexback.onrender.com/admin.html";
+                window.location.href = "https://irrigex-front.onrender.com/admin.html";
             } else {
                 alert("No se pudo crear la orden: " + res.message);
                 window.location.href = "/carrito.html";
