@@ -841,23 +841,39 @@ a.text-decoration-none.text-dark:hover {
     width: 18px;
 }
 
-.nav-tabs .nav-link {
-    color: #495057;
-    font-weight: 500;
+
+
+/*Modal deep seek*/
+
+/* Estilo para los enlaces de cambio de vista */
+#show-register, #show-login {
+  color: #007447;
+  font-weight: 500;
 }
 
-.nav-tabs .nav-link.active {
-    color: #007447;
-    font-weight: 600;
-    border-bottom: 2px solid #007447;
+#show-register:hover, #show-login:hover {
+  text-decoration: underline;
 }
 
 /* Estilo para los campos inválidos */
 .is-invalid {
-    border-color: #dc3545;
+  border-color: #dc3545;
 }
 
 .invalid-feedback {
-    color: #dc3545;
-    font-size: 0.875em;
+  color: #dc3545;
+  font-size: 0.875em;
+}
+
+/* Estilo para el modal */
+.modal-content {
+  border-radius: 8px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.modal-title {
+  font-weight: 600;
 }
