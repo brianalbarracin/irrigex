@@ -1,47 +1,63 @@
 <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #007447;">
   <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand" href="#">
-      <img src="assets/src/images/Logo-Irrigex.png?v=2" width="100" height="40" alt="Logo">
-    </a>
+    <!-- Logo y botón de hamburguesa -->
+    <div class="d-flex align-items-center">
+      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="assets/src/images/Logo-Irrigex.png?v=2" width="100" height="40" alt="Logo" class="img-fluid">
+      </a>
+    </div>
 
-    <!-- País destino -->
-    <span class="text-white me-3">
+    <!-- País destino (visible solo en móvil) -->
+    <span class="text-white me-3 d-lg-none">
       <i class="bi bi-geo-alt-fill"></i> Envios a <strong>Colombia</strong>
     </span>
 
-    <!-- Search bar -->
-    <form class="d-flex flex-grow-1 mx-3" role="search">
-      <select class="form-select w-auto me-2">
-        <option>Todos</option>
-        <option>Productos</option>
-      </select>
-      <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-      <button class="btn btn-warning" type="submit"><i class="bi bi-search"></i></button>
-    </form>
+    <!-- Contenido colapsable -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- País destino (visible en desktop) -->
+      <span class="text-white me-3 d-none d-lg-block">
+        <i class="bi bi-geo-alt-fill"></i> Envios a <strong>Colombia</strong>
+      </span>
 
-    <!-- Login y Carrito -->
-    <div class="d-flex align-items-center">
-      <a href="#" class="text-white me-4" data-bs-toggle="modal" data-bs-target="#loginModal">
-        <small>Hola, inicia sesión</small><br>
-        <strong>Cuenta y Listas</strong>
-      </a>
-      <a href="#" class="text-white me-3">
-        <small>Devoluciones</small><br>
-        <strong>y Pedidos</strong>
-      </a>
-      <a href="#" class="text-white position-relative">
-        <i class="bi bi-cart3 fs-4"></i>
-        <span
-          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
-        <span>Carrito</span>
-      </a>
+      <!-- Search bar -->
+      <form class="d-flex flex-grow-1 mx-lg-3 my-2 my-lg-0" role="search">
+        <select class="form-select w-auto me-2 d-none d-lg-block">
+          <option>Todos</option>
+          <option>Productos</option>
+        </select>
+        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+        <button class="btn btn-warning" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+
+      <!-- Login y Carrito -->
+      <div class="d-flex align-items-center ms-lg-auto">
+        <a href="#" class="text-white me-lg-4 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+          <small class="d-none d-lg-block">Hola, inicia sesión</small>
+          <i class="bi bi-person-fill d-lg-none fs-5"></i>
+          <strong class="d-lg-block d-none">Cuenta y Listas</strong>
+        </a>
+        <a href="#" class="text-white me-lg-3 me-2">
+          <small class="d-none d-lg-block">Devoluciones</small>
+          <i class="bi bi-arrow-return-left d-lg-none fs-5"></i>
+          <strong class="d-lg-block d-none">y Pedidos</strong>
+        </a>
+        <a href="#" class="text-white position-relative">
+          <i class="bi bi-cart3 fs-5"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">0</span>
+          <span class="d-lg-inline d-none">Carrito</span>
+        </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- Menú secundario responsive -->
 <div class="row" id="main-nav">
   <div class="col-12">
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills flex-nowrap overflow-auto py-2" style="white-space: nowrap;">
       <li class="nav-item">
         <a class="nav-link text-verde page" id='btn-inicio' aria-current="page" href="#" data-tag="inicio">Inicio</a>
       </li>
@@ -52,20 +68,16 @@
         <a class="nav-link text-verde page" id='btn-vision' aria-current="page" href="#" data-tag="vision">Riego</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-verde page" id='btn-nosotros' aria-current="page" href="#"
-          data-tag="nosotros">Nosotros</a>
+        <a class="nav-link text-verde page" id='btn-nosotros' aria-current="page" href="#" data-tag="nosotros">Nosotros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-verde page" id='btn-contactenos' aria-current="page" href="#"
-          data-tag="contactenos">Contáctenos</a>
+        <a class="nav-link text-verde page" id='btn-contactenos' aria-current="page" href="#" data-tag="contactenos">Contáctenos</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-verde " href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Ingreso</a>
+      <li class="nav-item d-lg-none">
+        <a class="nav-link text-verde" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Ingreso</a>
       </li>
     </ul>
   </div>
-  <br>
-  <br>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
