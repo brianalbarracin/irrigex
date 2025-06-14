@@ -238,17 +238,21 @@ body {
     width: 40px;
     height: 40px;
     display: flex;
-    align-items: center;     /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
     color: yellow;
     font-size: 18px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     border: 2px solid white;
-    overflow: hidden; /* Previene que se desborde */
+    overflow: hidden;
+    /* Previene que se desborde */
 }
 
 .adtocart i {
-    color: yellow; /* Asegura el color del ícono */
+    color: yellow;
+    /* Asegura el color del ícono */
 }
 
 .pro-title {
@@ -700,27 +704,30 @@ body {
 /*A qui comienza el CSS del form persona cuando se ingresa al admin*/
 
 .container-form {
-    max-width: 600px; /* Ajusta esto según lo ancho que lo quieras */
-    margin: 40px auto; /* Centrado horizontal y separación vertical */
-    padding: 0 20px;   /* Márgenes laterales internos */
-  }
+    max-width: 600px;
+    /* Ajusta esto según lo ancho que lo quieras */
+    margin: 40px auto;
+    /* Centrado horizontal y separación vertical */
+    padding: 0 20px;
+    /* Márgenes laterales internos */
+}
 
-  #formulario-persona {
+#formulario-persona {
     border: 1px solid #ddd;
     padding: 30px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
+}
 
-  .form-title {
+.form-title {
     text-align: center;
     margin-bottom: 40px;
     font-weight: 600;
     font-size: 1.5rem;
-  }
+}
 
- /* aqui comienzan las tarjetas de las direcciones
+/* aqui comienzan las tarjetas de las direcciones
 
  .address-card {
       border: 1px solid #ddd;
@@ -755,14 +762,16 @@ body {
     }*/
 
 
-    /*cartas de riego*/
+/*cartas de riego*/
 
-    .selectable-image {
+.selectable-image {
     transition: transform 0.3s ease;
 }
+
 .selectable-image:hover {
     transform: scale(1.05);
 }
+
 .card {
     border-radius: 10px;
 }
@@ -772,58 +781,83 @@ a.text-decoration-none.text-dark:hover {
     color: inherit;
     opacity: 0.95;
 }
+
 .selectable-image {
     transition: transform 0.3s ease;
 }
+
 .selectable-image:hover {
     transform: scale(1.03);
 }
+
 .card {
     border-radius: 10px;
     transition: box-shadow 0.3s ease;
 }
+
 .card:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /*MOdal para tarjeta*/
 
- #btn-agregar-tarjeta {
-        font-size: 0.9rem;
-        text-decoration: underline;
-        color: #007185;
-        cursor: pointer;
-    }
+#btn-agregar-tarjeta {
+    font-size: 0.9rem;
+    text-decoration: underline;
+    color: #007185;
+    cursor: pointer;
+}
 
-    .modal-content {
-        border-radius: 10px;
-    }
+.modal-content {
+    border-radius: 10px;
+}
 
-    /*MGoogle boton*/
+/*MGoogle boton*/
 
-    .btn-google {
-            background-color: white;
-            border: 1.5px solid #dadce0 !important;
-            color: #3c4043;
-            font-weight: 500;
-            border-radius: 999px;
-            padding: 10px 24px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            box-shadow: 0 0 0 1px #dadce0;
-        }
+.btn-google {
+    background-color: white;
+    border: 1.5px solid #dadce0 !important;
+    color: #3c4043;
+    font-weight: 500;
+    border-radius: 999px;
+    padding: 10px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 0 0 1px #dadce0;
+}
 
-        .btn-google:hover {
-            background-color: #f0f0f0;
-            color: #3c4043;
-            border: 1.5px solid #c0c0c0;
-        }
+.btn-google:hover {
+    background-color: #f0f0f0;
+    color: #3c4043;
+    border: 1.5px solid #c0c0c0;
+}
 
-        .btn-google img {
-            height: 18px;
-            width: 18px;
-        }
+.btn-google img {
+    height: 18px;
+    width: 18px;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #007447;
+    font-weight: 600;
+    border-bottom: 2px solid #007447;
+}
+
+/* Estilo para los campos inválidos */
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875em;
+}
