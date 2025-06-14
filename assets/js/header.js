@@ -119,7 +119,7 @@ function resetModal() {
         $(this).val('');
     });
     $('#login-form')[0].reset();
-    
+
     // Reset register form
     $("#register-name, #register-lastname, #register-email, #register-password").each(function () {
         $(this).removeClass('is-invalid');
@@ -131,7 +131,7 @@ function resetModal() {
 
 $(function () {
     // Mostrar vista de registro
-    $("#show-register").on('click', function(e) {
+    $("#show-register").on('click', function (e) {
         e.preventDefault();
         $("#login-view").hide();
         $("#register-view").show();
@@ -139,7 +139,7 @@ $(function () {
     });
 
     // Mostrar vista de login
-    $("#show-login").on('click', function(e) {
+    $("#show-login").on('click', function (e) {
         e.preventDefault();
         $("#register-view").hide();
         $("#login-view").show();
@@ -150,7 +150,7 @@ $(function () {
     $("#email, #password").on('change', function () {
         $(this).removeClass('is-invalid');
     });
-    
+
     $("#register-name, #register-lastname, #register-email, #register-password").on('change', function () {
         $(this).removeClass('is-invalid');
     });
@@ -229,20 +229,21 @@ $(function () {
     // Manejo del formulario de registro
     $("#register-form").submit(function (event) {
         event.preventDefault();
-        
+
         var isValidForm = true;
         var name = $("#register-name").val();
         var lastname = $("#register-lastname").val();
         var email = $("#register-email").val();
+        var phone = $("#register-phone").val();
         var password = $("#register-password").val();
         var terms = $("#register-terms").is(":checked");
-        
+
         // Validación de campos
         if (name === "") {
             $("#register-name").addClass('is-invalid');
             isValidForm = false;
         }
-        
+
         if (email === "") {
             $("#register-email").addClass('is-invalid');
             isValidForm = false;
@@ -250,7 +251,14 @@ $(function () {
             $("#register-email").addClass('is-invalid');
             isValidForm = false;
         }
-        
+
+        // Validación opcional del teléfono
+        if (phone !== "" && !validatePhone(phone)) {
+            $("#register-phone").addClass('is-invalid');
+            addAlert("Por favor ingresa un número de teléfono válido (sin espacios ni guiones)", "warning");
+            isValidForm = false;
+        }
+
         if (password === "") {
             $("#register-password").addClass('is-invalid');
             isValidForm = false;
@@ -259,18 +267,19 @@ $(function () {
             addAlert("La contraseña debe tener al menos 6 caracteres", "warning");
             isValidForm = false;
         }
-        
+
         if (!terms) {
             $("#register-terms").addClass('is-invalid');
             addAlert("Debes aceptar los términos y condiciones", "warning");
             isValidForm = false;
         }
-        
+
         if (isValidForm) {
             var request = {
                 name: name + (lastname ? ' ' + lastname : ''),
                 email: email,
-                password: password
+                password: password,
+                phone: phone ? "+57" + phone : "" // Agregamos el código de país si hay teléfono
             };
 
             console.log("Register::request", request);
@@ -283,15 +292,15 @@ $(function () {
 
                 if (apiResponse.data) {
                     addAlert("Registro exitoso. Por favor inicia sesión.", "success", 5);
-                    
+
                     // Cambiar a vista de login
                     $("#register-view").hide();
                     $("#login-view").show();
                     $("#loginModalLabel").text("Inicio de Sesión");
-                    
+
                     // Prellenar email en login
                     $("#email").val(email);
-                    
+
                     resetModal();
                 } else {
                     addAlert("Error en el registro: " + (apiResponse.message || "Intente nuevamente"), "danger");
@@ -315,12 +324,19 @@ $(function () {
         }
     });
 
-    // Función para validar email
+    // Función para validar teléfono (solo números, mínimo 10 dígitos)
+    function validatePhone(phone) {
+        // Eliminar cualquier carácter que no sea número
+        var cleaned = phone.replace(/\D/g, '');
+        // Validar que tenga al menos 10 dígitos (para Colombia)
+        return cleaned.length >= 10;
+    }
+
+    // Función para validar email (ya existente)
     function validateEmail(email) {
         var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     }
-
     // Resto de tu código existente...
     $("#main-nav .nav-link.page, #main-nav .dropdown-item.page").click(function () {
         var pag = $(this).data('tag');

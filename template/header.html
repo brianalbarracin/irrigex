@@ -105,9 +105,10 @@
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-3" id="btnLogin">Iniciar Sesión</button>
           </form>
-          
+
           <div class="text-center">
-            <p class="text-muted">¿No tienes una cuenta? <a href="#" id="show-register" class="text-decoration-none">Regístrate gratis</a></p>
+            <p class="text-muted">¿No tienes una cuenta? <a href="#" id="show-register"
+                class="text-decoration-none">Regístrate gratis</a></p>
           </div>
         </div>
 
@@ -127,10 +128,11 @@
             <p class="text-muted">O regístrate con correo</p>
           </div>
 
+          <!-- Dentro del div#register-view -->
           <form id="register-form" action="#">
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="register-name" class="form-label">Nombre</label>
+                <label for="register-name" class="form-label">Nombre*</label>
                 <input type="text" class="form-control" id="register-name" name="name" required>
               </div>
               <div class="col-md-6">
@@ -139,23 +141,33 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="register-email" class="form-label">Correo Electrónico</label>
+              <label for="register-email" class="form-label">Correo Electrónico*</label>
               <input type="email" class="form-control" id="register-email" name="email" required>
             </div>
             <div class="mb-3">
-              <label for="register-password" class="form-label">Contraseña</label>
+              <label for="register-phone" class="form-label">Teléfono</label>
+              <div class="input-group">
+                <span class="input-group-text">+57</span>
+                <input type="tel" class="form-control" id="register-phone" name="phone" placeholder="3001234567">
+              </div>
+              <div class="form-text">Opcional, pero útil para contactarte sobre tus pedidos</div>
+            </div>
+            <div class="mb-3">
+              <label for="register-password" class="form-label">Contraseña*</label>
               <input type="password" class="form-control" id="register-password" name="password" required>
               <div class="form-text">Mínimo 6 caracteres</div>
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="register-terms" name="terms" required>
-              <label class="form-check-label" for="register-terms">Acepto los <a href="#" class="text-decoration-none">Términos y Condiciones</a></label>
+              <label class="form-check-label" for="register-terms">Acepto los <a href="#"
+                  class="text-decoration-none">Términos y Condiciones</a></label>
             </div>
             <button type="submit" class="btn btn-success w-100 mb-3" id="btnRegister">Registrarse</button>
           </form>
-          
+
           <div class="text-center">
-            <p class="text-muted">¿Ya tienes una cuenta? <a href="#" id="show-login" class="text-decoration-none">Iniciar Sesión</a></p>
+            <p class="text-muted">¿Ya tienes una cuenta? <a href="#" id="show-login"
+                class="text-decoration-none">Iniciar Sesión</a></p>
           </div>
         </div>
       </div>
