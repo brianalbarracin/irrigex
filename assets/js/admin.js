@@ -13,7 +13,7 @@ $(function () {
     }
 
 
-    /* updateCartCount(user.id);*/
+   
 
 
     //para que detecte la pagina de redireccionamiento
@@ -25,6 +25,8 @@ $(function () {
 
     const user = JSON.parse(dataUser);
     console.log("Usuario cargado en admin:", user);
+
+    updateCartCount(user.id);
 
     loadHeader(rootPath);
     loadFooter(rootPath);
@@ -38,7 +40,7 @@ $(function () {
 
 });
 
-/*function updateCartCount(userId) {
+function updateCartCount(userId) {
     fetch(`https://irrigexback.onrender.com/cart/${userId}`)
         .then(res => res.json())
         .then(res => {
@@ -50,4 +52,4 @@ $(function () {
         .catch(err => {
             console.error("❌ No se pudo actualizar el contador del carrito", err);
         });
-}*/
+}
