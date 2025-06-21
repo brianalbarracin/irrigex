@@ -13,7 +13,7 @@ $(function () {
     }
 
 
-   /* updateCartCount(user.id);*/
+    /* updateCartCount(user.id);*/
 
 
     //para que detecte la pagina de redireccionamiento
@@ -29,6 +29,11 @@ $(function () {
     loadHeader(rootPath);
     loadFooter(rootPath);
     getPage("principal", rootPath)
+
+
+    $(document).on('click', '#cart-count', function () {
+        getPage('carrito', rootPath);
+    });
 
 
 });
