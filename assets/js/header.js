@@ -434,4 +434,10 @@ $(function () {
         // Redirigir a la URL de OAuth2 Google
         window.location.href = "https://irrigexback.onrender.com/oauth2/authorization/google";
     });
+
+    //boton de google en registro
+    $("#registerGoogle2").on("click", function () {
+        // Redirigir a la URL de OAuth2 Google
+        window.location.href = "https://irrigexback.onrender.com/oauth2/authorization/google";
+    });
 });
