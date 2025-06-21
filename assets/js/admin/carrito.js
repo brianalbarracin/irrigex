@@ -83,6 +83,7 @@ $(document).ready(function () {
         });
 
         updateSummary(total, totalItems);
+        updateCartCount();
     }
 
     function updateSummary(total, itemCount) {
@@ -198,5 +199,12 @@ $(document).ready(function () {
         history.pushState({}, '', '?page=preorden');
         getPage('../admin/pages/preorden');
     });
+
+    function updateCartCount() {
+        const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        $("#cart-count").text(totalItems);
+    }
+
+
 });
 
