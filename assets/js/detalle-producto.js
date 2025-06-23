@@ -61,19 +61,20 @@ $(document).ready(function () {
             const options = { weekday: "long", month: "long", day: "numeric" };
             $("#delivery-date").text(delivery.toLocaleDateString("es-ES", options));
 
-            // Controlador para la descripción colapsable
+            // Controlador para la descripción colapsable - CORREGIDO
             $("#description-toggle").on("click", function () {
                 const container = $("#description-container");
-                const toggle = $(this);
+                const toggleText = $(this).find(".toggle-text");
+                const icon = $(this).find("i");
 
-                if (container.hasClass("collapsed")) {
-                    container.removeClass("collapsed");
-                    toggle.removeClass("collapsed").addClass("expanded");
-                    toggle.find("span").text("Mostrar menos");
+                if (container.hasClass("expanded")) {
+                    container.removeClass("expanded");
+                    toggleText.text("Mostrar más");
+                    icon.css("transform", "rotate(0deg)");
                 } else {
-                    container.addClass("collapsed");
-                    toggle.removeClass("expanded").addClass("collapsed");
-                    toggle.find("span").text("Mostrar más");
+                    container.addClass("expanded");
+                    toggleText.text("Mostrar menos");
+                    icon.css("transform", "rotate(180deg)");
                 }
             });
 
@@ -81,7 +82,7 @@ $(document).ready(function () {
             const descriptionHeight = $("#product-description").height();
             if (descriptionHeight < 100) {
                 $("#description-toggle").hide();
-                $("#description-container").removeClass("collapsed");
+                $("#description-container").addClass("expanded");
             }
         },
         error: function () {

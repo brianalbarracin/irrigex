@@ -110,15 +110,16 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Estilos para la descripción colapsable */
+        /* Estilos para la descripción colapsable - CORREGIDOS */
         .description-container {
             position: relative;
             overflow: hidden;
+            max-height: 100px;
             transition: max-height 0.3s ease;
         }
 
-        .description-container.collapsed {
-            max-height: 100px;
+        .description-container.expanded {
+            max-height: 1000px; /* Un valor suficientemente grande */
         }
 
         .description-toggle {
@@ -135,12 +136,8 @@
             transition: transform 0.3s;
         }
 
-        .description-toggle.collapsed i {
-            transform: rotate(0deg);
-        }
-
-        .description-toggle.expanded i {
-            transform: rotate(180deg);
+        .description-toggle .toggle-text {
+            margin-right: 5px;
         }
 
         /* Estilos para dispositivos móviles */
@@ -218,11 +215,11 @@
 
                 <div class="mb-4">
                     <h5 class="fw-semibold">Descripción:</h5>
-                    <div class="description-container collapsed" id="description-container">
+                    <div class="description-container" id="description-container">
                         <p id="product-description" class="text-muted"></p>
                     </div>
-                    <div class="description-toggle collapsed" id="description-toggle">
-                        <span>Mostrar más</span>
+                    <div class="description-toggle" id="description-toggle">
+                        <span class="toggle-text">Mostrar más</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                 </div>
