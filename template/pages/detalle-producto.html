@@ -114,36 +114,6 @@
         .description-container {
             position: relative;
             overflow: hidden;
-            max-height: 100px;
-            transition: max-height 0.3s ease;
-        }
-
-        .description-container.expanded {
-            max-height: 1000px; /* Un valor suficientemente grande */
-        }
-
-        .description-toggle {
-            display: flex;
-            align-items: center;
-            color: #0d6efd;
-            cursor: pointer;
-            margin-top: 5px;
-            font-weight: 500;
-        }
-
-        .description-toggle i {
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .description-toggle .toggle-text {
-            margin-right: 5px;
-        }
-
-
-        .description-container {
-            position: relative;
-            overflow: hidden;
             max-height: 72px; /* 3 líneas aprox */
             transition: max-height 0.5s ease;
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
@@ -180,7 +150,7 @@
         .description-toggle.expanded i {
             transform: rotate(180deg);
         }
-
+        
         /* Estilos para dispositivos móviles */
         @media (max-width: 768px) {
             .product-container {
