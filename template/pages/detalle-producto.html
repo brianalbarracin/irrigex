@@ -12,22 +12,13 @@
     <style>
         .product-container {
             display: flex;
-            flex-direction: column;
             gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .product-container {
-                flex-direction: row;
-            }
         }
 
         .image-section {
             display: flex;
             gap: 15px;
             position: relative;
-            flex-direction: row;
-            flex-wrap: wrap;
         }
 
         .thumbnails {
@@ -50,12 +41,9 @@
         }
 
         .main-image-container {
-            flex-shrink: 0;
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            aspect-ratio: 1;
             position: relative;
+            width: 400px;
+            height: 400px;
             overflow: hidden;
         }
 
@@ -64,7 +52,6 @@
             height: 100%;
             object-fit: contain;
             cursor: crosshair;
-            display: block;
         }
 
         .zoom-preview {
@@ -79,28 +66,9 @@
             position: absolute;
             top: 0;
             left: 430px;
+            /* ajusta según el ancho de la imagen principal y el gap */
             z-index: 10;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 767px) {
-            .zoom-preview {
-                display: none !important;
-            }
-
-            .image-section {
-                align-items: flex-start;
-            }
-
-            .thumbnails {
-                width: 70px;
-                flex-shrink: 0;
-            }
-
-            .main-image-container {
-                width: 400px;
-                height: 400px;
-            }
         }
 
         .badge-oferta {
@@ -133,23 +101,10 @@
             margin-top: 20px;
         }
 
-        /* Descripción recortada */
-        .description-wrapper {
-            position: relative;
-        }
-
-        #product-description.collapsed {
-            max-height: 100px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: #007bff;
-            cursor: pointer;
-            font-weight: 500;
-            margin-top: 8px;
+        .question-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
@@ -186,8 +141,7 @@
 
                 <div class="mb-4">
                     <h5 class="fw-semibold">Descripción:</h5>
-                    <p id="product-description" class="text-muted collapsed"></p>
-                    <span id="toggle-description" class="read-more">Leer más ▼</span>
+                    <p id="product-description" class="text-muted"></p>
                 </div>
 
                 <div class="product-actions">
@@ -206,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </div>

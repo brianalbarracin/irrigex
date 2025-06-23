@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
@@ -13,14 +14,7 @@ $(document).ready(function () {
             $("#product-title").text(p.name);
             $("#product-price").text(`$${p.price}`);
             $("#product-typical").text(`$${p.typicalPrice || "74.95"}`);
-            $("#product-description").html(p.description).addClass("collapsed");
-
-            // Mostrar botón solo si la descripción es larga
-            if (p.description.length > 300) {
-                $("#toggle-description").show();
-            } else {
-                $("#toggle-description").hide();
-            }
+            $("#product-description").text(p.description);
 
             // Imagen principal
             const mainImageUrl = p.imageUrls[0];
@@ -113,18 +107,4 @@ $(document).ready(function () {
             zoomPreview.style.display = 'none';
         };
     }
-
-
-    $("#toggle-description").on("click", function () {
-        const desc = $("#product-description");
-        const isCollapsed = desc.hasClass("collapsed");
-
-        if (isCollapsed) {
-            desc.removeClass("collapsed");
-            $(this).text("Leer menos ▲");
-        } else {
-            desc.addClass("collapsed");
-            $(this).text("Leer más ▼");
-        }
-    });
 });
