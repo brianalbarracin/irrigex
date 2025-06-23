@@ -151,19 +151,39 @@ $(document).ready(function () {
         const toggle = $("#description-toggle");
         const description = $("#product-description");
 
+        console.log("Altura actual:", container.height(), "ScrollHeight:", description[0].scrollHeight);
+
         // Mostrar el botón solo si el contenido excede la altura inicial
-        if (description[0].scrollHeight > 72) {
+        /* if (description[0].scrollHeight > 72) {
+             toggle.show();
+ 
+             toggle.on("click", function () {
+                 if (container.hasClass("expanded")) {
+                     container.removeClass("expanded");
+                     toggle.removeClass("expanded");
+                     toggle.find("span").text("Mostrar más");
+                 } else {
+                     container.addClass("expanded");
+                     toggle.addClass("expanded");
+                     toggle.find("span").text("Mostrar menos");
+                 }
+             });
+         } else {
+             toggle.hide();
+             container.addClass("expanded");
+         }*/
+
+        if (description[0].scrollHeight > container[0].clientHeight + 10) {
             toggle.show();
 
             toggle.on("click", function () {
+                container.toggleClass("expanded");
+                toggle.toggleClass("expanded");
+
                 if (container.hasClass("expanded")) {
-                    container.removeClass("expanded");
-                    toggle.removeClass("expanded");
-                    toggle.find("span").text("Mostrar más");
-                } else {
-                    container.addClass("expanded");
-                    toggle.addClass("expanded");
                     toggle.find("span").text("Mostrar menos");
+                } else {
+                    toggle.find("span").text("Mostrar más");
                 }
             });
         } else {

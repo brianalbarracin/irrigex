@@ -110,16 +110,23 @@
             border-bottom: 1px solid #eee;
         }
 
-        /* Estilos para la descripción colapsable - CORREGIDOS */
+        /* Estilos para la descripción colapsable - CORREGIDOS 
         .description-container {
             position: relative;
             overflow: hidden;
             max-height: 120px;
-            /* 3 líneas aprox */
+           
             transition: max-height 0.5s ease;
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        }
+        }*/
+        #description-container {
+    max-height: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    background: #ff0; /* solo para notar el cambio */
+}
+
 
         .description-container.expanded {
             max-height: none !important;
