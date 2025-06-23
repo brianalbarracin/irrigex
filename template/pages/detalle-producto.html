@@ -13,12 +13,15 @@
         .product-container {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .image-section {
             display: flex;
             gap: 15px;
             position: relative;
+            flex: 1;
+            min-width: 300px;
         }
 
         .thumbnails {
@@ -42,7 +45,8 @@
 
         .main-image-container {
             position: relative;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 400px;
             overflow: hidden;
         }
@@ -65,8 +69,7 @@
             background-size: contain;
             position: absolute;
             top: 0;
-            left: 430px;
-            /* ajusta según el ancho de la imagen principal y el gap */
+            left: calc(100% + 30px);
             z-index: 10;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -106,6 +109,80 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
+
+        /* Estilos para la descripción colapsable */
+        .description-container {
+            position: relative;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .description-container.collapsed {
+            max-height: 100px;
+        }
+
+        .description-toggle {
+            display: flex;
+            align-items: center;
+            color: #0d6efd;
+            cursor: pointer;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .description-toggle i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .description-toggle.collapsed i {
+            transform: rotate(0deg);
+        }
+
+        .description-toggle.expanded i {
+            transform: rotate(180deg);
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                flex-direction: column-reverse;
+            }
+            
+            .thumbnails {
+                flex-direction: row;
+                order: 1;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .main-image-container {
+                max-width: 100%;
+                height: 300px;
+            }
+            
+            .product-title {
+                font-size: 1.5rem !important;
+            }
+            
+            .product-price {
+                font-size: 1.8rem !important;
+            }
+            
+            .zoom-preview {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-image-container {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 
@@ -126,7 +203,7 @@
             </div>
 
             <!-- Detalles del producto -->
-            <div class="product-details">
+            <div class="product-details" style="flex: 1; min-width: 300px;">
                 <h1 id="product-title" class="fw-bold mb-3" style="font-size: 2rem;"></h1>
 
                 <div class="d-flex align-items-center mb-3">
@@ -141,7 +218,13 @@
 
                 <div class="mb-4">
                     <h5 class="fw-semibold">Descripción:</h5>
-                    <p id="product-description" class="text-muted"></p>
+                    <div class="description-container collapsed" id="description-container">
+                        <p id="product-description" class="text-muted"></p>
+                    </div>
+                    <div class="description-toggle collapsed" id="description-toggle">
+                        <span>Mostrar más</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
                 </div>
 
                 <div class="product-actions">
@@ -160,7 +243,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

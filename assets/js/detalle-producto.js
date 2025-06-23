@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     const params = new URLSearchParams(window.location.search);
     const productId = params.get("id");
@@ -31,9 +30,9 @@ $(document).ready(function () {
             // Miniaturas
             if (p.imageUrls.length > 0) {
                 const thumbsHtml = p.imageUrls.map((url, i) => `
-                    <img src="${url}" class="img-thumbnail thumb-img ${i === 0 ? 'active' : ''}" 
-                         data-index="${i}" data-url="${url}" alt="Miniatura ${i + 1}">
-                `).join("");
+                        <img src="${url}" class="img-thumbnail thumb-img ${i === 0 ? 'active' : ''}" 
+                             data-index="${i}" data-url="${url}" alt="Miniatura ${i + 1}">
+                    `).join("");
                 $("#image-thumbs").html(thumbsHtml);
 
                 $(".thumb-img").on("click", function () {
@@ -61,14 +60,42 @@ $(document).ready(function () {
             delivery.setDate(delivery.getDate() + 3);
             const options = { weekday: "long", month: "long", day: "numeric" };
             $("#delivery-date").text(delivery.toLocaleDateString("es-ES", options));
+
+            // Controlador para la descripción colapsable
+            $("#description-toggle").on("click", function () {
+                const container = $("#description-container");
+                const toggle = $(this);
+
+                if (container.hasClass("collapsed")) {
+                    container.removeClass("collapsed");
+                    toggle.removeClass("collapsed").addClass("expanded");
+                    toggle.find("span").text("Mostrar menos");
+                } else {
+                    container.addClass("collapsed");
+                    toggle.removeClass("expanded").addClass("collapsed");
+                    toggle.find("span").text("Mostrar más");
+                }
+            });
+
+            // Ocultar el toggle si la descripción es corta
+            const descriptionHeight = $("#product-description").height();
+            if (descriptionHeight < 100) {
+                $("#description-toggle").hide();
+                $("#description-container").removeClass("collapsed");
+            }
         },
         error: function () {
             $("#main-content").html(`<div class="alert alert-danger">Producto no encontrado</div>`);
         }
     });
 
-    // Función de zoom
+    // Función de zoom (solo para desktop)
     function initImageZoom() {
+        // Solo activar el zoom en pantallas grandes
+        if ($(window).width() < 768) {
+            return;
+        }
+
         const img = document.getElementById('product-image');
         const zoomPreview = document.getElementById('zoom-preview');
 
@@ -107,4 +134,11 @@ $(document).ready(function () {
             zoomPreview.style.display = 'none';
         };
     }
+
+    // Manejar el redimensionamiento de la ventana
+    $(window).on("resize", function () {
+        if ($(window).width() >= 768) {
+            initImageZoom();
+        }
+    });
 });
