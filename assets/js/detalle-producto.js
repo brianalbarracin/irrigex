@@ -64,7 +64,7 @@ $(document).ready(function () {
             $("#delivery-date").text(delivery.toLocaleDateString("es-ES", options));
 
             // Controlador para la descripción colapsable - CORREGIDO
-            $("#description-toggle").on("click", function () {
+            /*$("#description-toggle").on("click", function () {
                 const container = $("#description-container");
                 const toggleText = $(this).find(".toggle-text");
                 const icon = $(this).find("i");
@@ -78,7 +78,7 @@ $(document).ready(function () {
                     toggleText.text("Mostrar menos");
                     icon.css("transform", "rotate(180deg)");
                 }
-            });
+            });*/
 
             // Ocultar el toggle si la descripción es corta
             const descriptionHeight = $("#product-description").height();
