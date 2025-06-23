@@ -13,7 +13,7 @@ $(document).ready(function () {
             $("#product-title").text(p.name);
             $("#product-price").text(`$${p.price}`);
             $("#product-typical").text(`$${p.typicalPrice || "74.95"}`);
-            $("#product-description").text(p.description);
+            $("#product-description").html(p.description.replace(/\n/g, "<br>"));
 
             setTimeout(setupDescriptionToggle, 100);
 
