@@ -15,6 +15,13 @@ $(document).ready(function () {
             $("#product-typical").text(`$${p.typicalPrice || "74.95"}`);
             $("#product-description").text(p.description);
 
+            // Mostrar botón solo si la descripción es larga
+            if (p.description.length > 300) {
+                $("#toggle-description").show();
+            } else {
+                $("#toggle-description").hide();
+            }
+
             // Imagen principal
             const mainImageUrl = p.imageUrls[0];
             $("#product-image").attr("src", mainImageUrl);
