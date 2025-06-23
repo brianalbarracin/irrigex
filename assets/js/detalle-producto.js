@@ -13,7 +13,7 @@ $(document).ready(function () {
             $("#product-title").text(p.name);
             $("#product-price").text(`$${p.price}`);
             $("#product-typical").text(`$${p.typicalPrice || "74.95"}`);
-            $("#product-description").text(p.description);
+            $("#product-description").html(p.description).addClass("collapsed");
 
             // Mostrar botón solo si la descripción es larga
             if (p.description.length > 300) {
