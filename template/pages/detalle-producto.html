@@ -10,6 +10,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        #product-description {
+            white-space: normal;
+            line-height: 1.6;
+        }
+
         .product-container {
             display: flex;
             gap: 20px;
@@ -115,12 +120,12 @@
             position: relative;
             overflow: hidden;
             max-height: 120px;
-           
+
             transition: max-height 0.5s ease;
             -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
         }
-       
+
 
         .description-container.expanded {
             max-height: none !important;
