@@ -15,6 +15,8 @@ $(document).ready(function () {
             $("#product-typical").text(`$${p.typicalPrice || "74.95"}`);
             $("#product-description").text(p.description);
 
+            setTimeout(setupDescriptionToggle, 100);
+
             // Imagen principal
             const mainImageUrl = p.imageUrls[0];
             $("#product-image").attr("src", mainImageUrl);
@@ -142,4 +144,32 @@ $(document).ready(function () {
             initImageZoom();
         }
     });
+
+
+    function setupDescriptionToggle() {
+        const container = $("#description-container");
+        const toggle = $("#description-toggle");
+        const description = $("#product-description");
+
+        // Mostrar el botón solo si el contenido excede la altura inicial
+        if (description[0].scrollHeight > 72) {
+            toggle.show();
+
+            toggle.on("click", function () {
+                if (container.hasClass("expanded")) {
+                    container.removeClass("expanded");
+                    toggle.removeClass("expanded");
+                    toggle.find("span").text("Mostrar más");
+                } else {
+                    container.addClass("expanded");
+                    toggle.addClass("expanded");
+                    toggle.find("span").text("Mostrar menos");
+                }
+            });
+        } else {
+            toggle.hide();
+            container.addClass("expanded");
+        }
+    }
+
 });
