@@ -200,11 +200,11 @@ $(document).ready(function () {
             $(".mobile-filter-panel").slideUp();
 
             // Actualizar solo el nombre de categoría (sin guiones ni texto largo)
-            const categoryText = $(`.prod-cat[data-category="${category}"]`).text().trim().replace(/^-\s*/, '');
+            const categoryText = $(`.prod-cat[data-category="${category}"]`).first().text().trim().replace(/^-\s*/, '');
             $(".mobile-category-title").text(categoryText);
 
             // Quitar texto largo adicional si lo hubiera
-           // $(".mobile-category-description").hide();
+            // $(".mobile-category-description").hide();
         } else {
             renderDesktopProducts(products);
         }
