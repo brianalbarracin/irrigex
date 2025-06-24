@@ -1,6 +1,6 @@
 
 var priceSlider = null;
-var priceSliderElement=null;
+var priceSliderElement = null;
 $(document).ready(function () {
     // Dummy data by category
 
@@ -227,7 +227,7 @@ $(document).ready(function () {
     });
 
     // Inicializar slider de precios para móviles
-    if ($(window).width() < 768) {
+    /*if ($(window).width() < 768) {
         noUiSlider.create(document.getElementById('price-range-mobile'), {
             start: [15, 824],
             connect: true,
@@ -268,6 +268,54 @@ $(document).ready(function () {
 
         renderMobileProducts(filtered);
         $(".mobile-category-title").text("Filtrado por precio");
+    });*/
+
+
+    function initMobileSlider() {
+        const mobileSliderElement = document.getElementById('price-range-mobile');
+
+        // Verificar si el elemento existe y no tiene slider ya creado
+        if (mobileSliderElement && !mobileSliderElement.noUiSlider) {
+            noUiSlider.create(mobileSliderElement, {
+                start: [15, 824],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 4750
+                },
+                step: 1,
+                tooltips: true,
+                format: {
+                    to: value => `${Math.round(value)}.000`,
+                    from: value => Number(value.replace('.000', ''))
+                }
+            });
+
+            mobileSliderElement.noUiSlider.on('update', function (values) {
+                $('#min-price-mobile').text(values[0]);
+                $('#max-price-mobile').text(values[1]);
+            });
+        }
+    }
+
+    // Inicializar slider móvil al cargar si es móvil
+    function checkMobileAndInit() {
+        if ($(window).width() < 768) {
+            initMobileSlider();
+        }
+    }
+
+    // Llamar al cargar la página
+    $(document).ready(function () {
+        checkMobileAndInit();
+
+        // También inicializar al cambiar tamaño (por si acaso)
+        $(window).on('resize', function () {
+            // Solo inicializar si es móvil y no está ya inicializado
+            if ($(window).width() < 768) {
+                initMobileSlider();
+            }
+        });
     });
 
     // Cargar productos iniciales
