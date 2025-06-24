@@ -163,37 +163,28 @@ $(document).ready(function () {
 
 
     function renderDesktopProducts(products) {
-        const perPage = 6;
-        const start = (page - 1) * perPage;
-        const products = productsByCategory[category] || [];
-
-        console.log("Porque mierdas no se mnuestra este:", category);
-        const selected = products;
-        //const selected = products.slice(start, start + perPage);
-        const productHtml = selected.map(p => `
-    <div class="col-md-4 mb-4">
-        <a href="#" class="product-link" data-id="${p.id}">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="position-relative">
-                    <img src="${p.image}" class="card-img-top img-fluid selectable-image" alt="${p.title}">
-                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">20% off</span>
-                    <span class="badge bg-light text-danger border position-absolute top-0 end-0 m-2">Oferta por tiempo limitado</span>
-                </div>
-                <div class="card-body text-start">
-                    <h5 class="card-title fw-semibold" style="min-height: 48px;">${p.title}</h5>
-                    <div>
-                        <span class="text-danger fw-bold fs-5">${p.price}</span>
-                        <span class="text-muted text-decoration-line-through ms-2 fs-6">Antes: ${p.typical}</span>
+        const productHtml = products.map(p => `
+        <div class="col-md-4 mb-4">
+            <a href="#" class="product-link" data-id="${p.id}">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="position-relative">
+                        <img src="${p.image}" class="card-img-top img-fluid selectable-image" alt="${p.title}" style="height: 200px; object-fit: contain;">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">20% off</span>
+                        <span class="badge bg-light text-danger border position-absolute top-0 end-0 m-2">Oferta por tiempo limitado</span>
+                    </div>
+                    <div class="card-body text-start">
+                        <h5 class="card-title fw-semibold" style="min-height: 48px;">${p.title}</h5>
+                        <div>
+                            <span class="text-danger fw-bold fs-5">${p.price}</span>
+                            <span class="text-muted text-decoration-line-through ms-2 fs-6">Antes: ${p.typical}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
-    </div>
-`).join("");
+            </a>
+        </div>
+    `).join("");
 
-        $(".product-list").html(productHtml);
-
-        $(".pagination").html("");
+    $("#desktop-product-list").html(productHtml);
     }
 
 // Función para cargar productos por categoría
