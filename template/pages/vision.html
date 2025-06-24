@@ -1,186 +1,661 @@
-<div class="container-fluid bootdey">
+<!DOCTYPE html>
+<html lang="es">
 
-    <div class="row" style="margin-left: 10px;">
-        <div class="col-md-3">
-            <!-- Search Section -->
-            <section class="panel">
-                <div class="panel-body">
-                    <input type="text" id="keyword-search" placeholder="Búsqueda por palabra" class="form-control" />
-                </div>
-            </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos de Riego</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- noUiSlider CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.css" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Amazon Ember', Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
 
-            <!-- Categories Section -->
-            <section class="panel">
-                <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;">Riego por Aspersión</header>
-                <div class="panel-body">
-                    <ul class="nav prod-cat">
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Aspersores</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" class="prod-cat" data-category="Dress">- Aspersores radio 12-18m</a>
-                                </li>
-                                <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 13-22m</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Shirt-aspersores">- Aspersores radio
-                                        16-30m</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Beauty-aspersores">- Asperores radio
-                                        20-44m</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Jet de Aspersión
-                                (Cañones)</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" class="prod-cat" data-category="Jet3035">- Jet 35 y Jet 40</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Jet5055">- Jet 50 y Jet 55</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Jet6570">- Jet 65 y 70</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Aspersores estercoleros, de pivot e industriales</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" class="prod-cat" data-category="Estercoleros">- Aspersores estercoleros</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Ngun">- Anspersores de pivot</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Industriales">- Aspersores industriales</a></li>
-                            </ul>
-                        </li>
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .mobile-category-header {
+                background-color: #f7f7f7;
+                padding: 15px;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #ddd;
+            }
 
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
-                                instalación</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" class="prod-cat" data-category="Bases">- Tripodes</a></li>                                
-                                <li><a href="#" class="prod-cat" data-category="Basesruedas">- Bases con ruedas para aspersores</a></li>
-                                <li><a href="#" class="prod-cat" data-category="Couplings">- Couplings, Hidrantes y Válvulas de alivio</a>
-                                </li>
-                            </ul>
-                        </li>
+            .mobile-category-title {
+                font-size: 1.4rem;
+                font-weight: bold;
+                color: #0066c0;
+            }
 
-                    </ul>
-                </div>
-            </section>
+            .mobile-category-description {
+                margin-top: 10px;
+                color: #555;
+            }
 
+            .mobile-products-container {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 10px 15px;
+                margin-bottom: 20px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                /* Firefox */
+            }
 
-            <section class="panel">
-                <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;margin-top: 5px;">Riego
-                    Localizado</header>
-                <div class="panel-body">
-                    <ul class="nav prod-cat">
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Riego por Goteo</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" class="active" data-category="Shirt">- Aspersores radio 12-18m</a></li>
-                                <li><a href="#" class="active" data-category="Pant">- Aspersores radio 13-22m</a></li>
-                                <li><a href="#" class="active" data-category="Shirt">- Aspersores radio 16-30m</a></li>
-                                <li><a href="#" class="active" data-category="Pant">- Aspersores radio 20-44m</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Microaspersión</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" data-category="Shirt">- Jet 30 y Jet 35</a></li>
-                                <li><a href="#" data-category="Pant">- Jet 40 y Jet 50</a></li>
-                                <li><a href="#" data-category="Shirt">- Jet 55 y 65</a></li>
-                                <li><a href="#" data-category="Pant">- Jet 70</a></li>
-                            </ul>
-                        </li>
+            .mobile-products-container::-webkit-scrollbar {
+                display: none;
+                /* Chrome/Safari */
+            }
 
-                        <li class="has-submenu">
-                            <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
-                                instalación</a>
-                            <ul class="nav submenu" style="display: none;">
-                                <li><a href="#" data-category="Shirt">- Tripodes</a></li>
-                                <li><a href="#" data-category="Pant">- Bases para aspersores</a></li>
-                                <li><a href="#" data-category="Shirt">- bases con ruedas para aspersores</a></li>
-                                <li><a href="#" data-category="Pant">- Couplings, Hidrantes y Válvulas de alivio</a>
-                                </li>
-                            </ul>
-                        </li>
+            .mobile-product-card {
+                display: inline-block;
+                width: 180px;
+                margin-right: 15px;
+                white-space: normal;
+                vertical-align: top;
+            }
 
-                    </ul>
-                </div>
-            </section>
+            .mobile-product-card:last-child {
+                margin-right: 0;
+            }
 
-            <!-- Price Range Section
-        <section class="panel panel-price">
-            <header class="panel-heading">Rango de Precios</header>
-              <div id="price-range"></div>
-              <p>$<span id="min-price">8</span> – $<span id="max-price">64</span> y más</p>
-              <button id="apply-price-filter" class="btn btn-primary btn-sm">Ir</button>
-        </section>  -->
+            .mobile-product-image {
+                height: 150px;
+                object-fit: contain;
+                width: 100%;
+            }
 
-            <section class="panel panel-price">
-                <header class="panel-heading" style="margin-top: 20px;font-weight: bold;">Rango de Precios</header>
+            /* Ocultar sidebar en móviles */
+            .desktop-sidebar {
+                display: none;
+            }
 
-                <div class="price-slider-container">
-                    <div id="price-range"></div>
-                    <button id="apply-price-filter" class="btn btn-primary btn-sm">Ir</button>
-                </div>
+            /* Mostrar filtros móviles */
+            .mobile-filters {
+                display: block;
+                margin-bottom: 15px;
+                padding: 0 15px;
+            }
 
-                <p>$<span id="min-price">8</span> – $<span id="max-price">64</span> y más</p>
-            </section>
+            /* Estilo para el botón de filtros */
+            .mobile-filter-btn {
+                background-color: #f0f2f2;
+                border: 1px solid #d5d9d9;
+                border-radius: 8px;
+                padding: 10px 15px;
+                font-size: 14px;
+                width: 100%;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
 
+            /* Ajustes para la barra de búsqueda en móviles */
+            .mobile-search {
+                padding: 0 15px;
+                margin: 15px 0;
+            }
 
-            <!-- Filter Section -->
-            <section class="panel">
-                <header class="panel-heading">Filtro</header>
-                <div class="panel-body">
-                    <form role="form product-form">
-                        <div class="form-group">
-                            <label>Marca</label>
-                            <select class="form-control">
-                                <option>Yusuak</option>
-                            </select>
-                        </div>
-                        <!--<div class="form-group">
-                            <label>Color</label>
-                            <select class="form-control">
-                                <option>White</option>
-                                <option>Black</option>
-                            </select>
-                        </div>-->
-                        <button class="btn btn-primary" type="submit" style="margin-top: 20px;margin-bottom: 20px;">Filter</button>
-                    </form>
-                </div>
-            </section>
-        </div>
+            /* Panel de filtros móvil */
+            .mobile-filter-panel {
+                background: white;
+                border-radius: 8px;
+                margin: 0 15px 20px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
+        }
 
-        <div class="col-md-9">
-            <!-- Pagination -->
-            <section class="panel">
-                <div class="panel-body">
-                    <div class="pull-right">
-                        <ul class="pagination pagination-sm">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">»</a></li>
+        /* Estilos para desktop */
+        @media (min-width: 769px) {
+
+            .mobile-category-header,
+            .mobile-filters,
+            .mobile-search,
+            .mobile-filter-panel {
+                display: none;
+            }
+
+            .desktop-sidebar {
+                display: block;
+            }
+
+            .container-fluid.bootdey {
+                padding: 20px;
+            }
+        }
+
+        /* Estilos compartidos */
+        .price-badge {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #565959;
+            font-size: 0.9rem;
+        }
+
+        .discount-badge {
+            background-color: #cc0c39;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .product-card {
+            transition: transform 0.2s;
+            border: 1px solid #e7e7e7;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            background: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para el submenú */
+        .submenu {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .submenu.show {
+            display: block;
+        }
+
+        .toggle-submenu .fa-angle-right {
+            transition: transform 0.3s;
+            margin-right: 5px;
+        }
+
+        .toggle-submenu.collapsed .fa-angle-right {
+            transform: rotate(90deg);
+        }
+
+        /* Estilos para paneles */
+        .panel {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .panel-heading {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .panel-body {
+            padding: 15px;
+        }
+
+        .prod-cat {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .prod-cat a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            transition: color 0.2s;
+        }
+
+        .prod-cat a:hover {
+            color: #0066c0;
+        }
+
+        .price-slider-container {
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+
+        /* No UI Slider styles */
+        .noUi-target {
+            margin: 15px 0;
+            height: 6px;
+            border-radius: 3px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .noUi-connect {
+            background: #0066c0;
+        }
+
+        .noUi-handle {
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            top: -7px;
+            border-radius: 50%;
+            border: none;
+            background: #0066c0;
+            box-shadow: none;
+        }
+
+        .noUi-handle:before,
+        .noUi-handle:after {
+            display: none;
+        }
+
+        /* Paginación */
+        .pagination {
+            margin: 0;
+        }
+
+        .pagination a {
+            color: #0066c0;
+        }
+
+        /* Mejoras para el formulario */
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #d5d9d9;
+        }
+
+        .btn-primary {
+            background-color: #0066c0;
+            border-color: #0066c0;
+            border-radius: 8px;
+        }
+
+        /* Efecto de carga */
+        .loading {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0066c0;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bootdey">
+        <!-- Versión móvil -->
+        <div class="d-block d-md-none">
+            <!-- Barra de búsqueda móvil -->
+            <div class="mobile-search">
+                <input type="text" id="mobile-keyword-search" placeholder="Buscar productos..." class="form-control">
+            </div>
+
+            <!-- Filtros móviles -->
+            <div class="mobile-filters">
+                <button class="mobile-filter-btn" id="mobile-filter-toggle">
+                    <span><i class="fas fa-sliders-h me-2"></i>Filtros y Categorías</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <!-- Panel de filtros móviles (oculto inicialmente) -->
+            <div class="panel mobile-filter-panel" style="display: none;">
+                <!-- Sección de búsqueda -->
+                <section class="panel">
+                    <div class="panel-body">
+                        <input type="text" id="keyword-search-mobile" placeholder="Búsqueda por palabra"
+                            class="form-control" />
+                    </div>
+                </section>
+
+                <!-- Categorías -->
+                <section class="panel">
+                    <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;">Riego por Aspersión
+                    </header>
+                    <div class="panel-body">
+                        <ul class="nav prod-cat">
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Aspersores</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Dress">- Aspersores radio 12-18m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 13-22m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt-aspersores">- Aspersores radio
+                                            16-30m</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Beauty-aspersores">- Asperores radio
+                                            20-44m</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Jet de Aspersión
+                                    (Cañones)</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Jet3035">- Jet 35 y Jet 40</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Jet5055">- Jet 50 y Jet 55</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Jet6570">- Jet 65 y 70</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Aspersores
+                                    estercoleros, de pivot e industriales</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Estercoleros">- Aspersores
+                                            estercoleros</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Ngun">- Anspersores de pivot</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Industriales">- Aspersores
+                                            industriales</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
+                                    instalación</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Bases">- Tripodes</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Basesruedas">- Bases con ruedas para
+                                            aspersores</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Couplings">- Couplings, Hidrantes y
+                                            Válvulas de alivio</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                </div>
-            </section>
+                </section>
 
-             
-            <div class="row product-list">
+                <section class="panel">
+                    <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;margin-top: 5px;">Riego
+                        Localizado</header>
+                    <div class="panel-body">
+                        <ul class="nav prod-cat">
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Riego por Goteo</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Aspersores radio 12-18m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 13-22m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Aspersores radio 16-30m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 20-44m</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Microaspersión</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Jet 30 y Jet 35</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Jet 40 y Jet 50</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Jet 55 y 65</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Jet 70</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
+                                    instalación</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Tripodes</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Bases para aspersores</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- bases con ruedas para
+                                            aspersores</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Couplings, Hidrantes y
+                                            Válvulas de alivio</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
-                <div class="col-md-4">
-                    <!-- Product List
-                    <section class="panel">
-                        <div class="pro-img-box">
-                            <img src="https://www.bootdey.com/image/250x220/FFB6C1/000000" alt="" />
-                            <a href="#" class="adtocart"><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                        <div class="panel-body text-center">
-                            <h4><a href="#" class="pro-title">Leopard Shirt Dress</a></h4>
-                            <p class="price">$300.00</p>
-                        </div>
-                    </section>-->
+                <!-- Rango de precios -->
+                <section class="panel panel-price">
+                    <header class="panel-heading" style="margin-top: 20px;font-weight: bold;">Rango de Precios</header>
+                    <div class="price-slider-container">
+                        <div id="price-range-mobile"></div>
+                        <button id="apply-price-filter-mobile" class="btn btn-primary btn-sm mt-2">Aplicar</button>
+                    </div>
+                    <p class="px-3">$<span id="min-price-mobile">8</span> – $<span id="max-price-mobile">64</span> y más
+                    </p>
+                </section>
+
+                <!-- Filtro de marca -->
+                <section class="panel">
+                    <header class="panel-heading">Filtro</header>
+                    <div class="panel-body">
+                        <form role="form product-form">
+                            <div class="form-group">
+                                <label>Marca</label>
+                                <select class="form-control">
+                                    <option>Yusuak</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" type="submit"
+                                style="margin-top: 20px;margin-bottom: 20px;">Filtrar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Cabecera de categoría móvil -->
+            <div class="mobile-category-header">
+                <div class="mobile-category-title">Productos Destacados</div>
+                <div class="mobile-category-description">
+                    Los mejores productos de riego para tus necesidades agrícolas
                 </div>
-                 Add more products similarly 
+            </div>
+
+            <!-- Contenedor de productos con scroll horizontal -->
+            <div class="mobile-products-container" id="mobile-products-container">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Versión desktop -->
+        <div class="row d-none d-md-flex" style="margin-left: 10px;">
+            <div class="col-md-3 desktop-sidebar">
+                <!-- Search Section -->
+                <section class="panel">
+                    <div class="panel-body">
+                        <input type="text" id="keyword-search" placeholder="Búsqueda por palabra"
+                            class="form-control" />
+                    </div>
+                </section>
+
+                <!-- Categories Section -->
+                <section class="panel">
+                    <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;">Riego por Aspersión
+                    </header>
+                    <div class="panel-body">
+                        <ul class="nav prod-cat">
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Aspersores</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Dress">- Aspersores radio 12-18m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 13-22m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt-aspersores">- Aspersores radio
+                                            16-30m</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Beauty-aspersores">- Asperores radio
+                                            20-44m</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Jet de Aspersión
+                                    (Cañones)</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Jet3035">- Jet 35 y Jet 40</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Jet5055">- Jet 50 y Jet 55</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Jet6570">- Jet 65 y 70</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Aspersores
+                                    estercoleros, de pivot e industriales</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Estercoleros">- Aspersores
+                                            estercoleros</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Ngun">- Anspersores de pivot</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Industriales">- Aspersores
+                                            industriales</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
+                                    instalación</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Bases">- Tripodes</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Basesruedas">- Bases con ruedas para
+                                            aspersores</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Couplings">- Couplings, Hidrantes y
+                                            Válvulas de alivio</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <header class="panel-heading" style="margin-bottom: 5px;font-weight: bold;margin-top: 5px;">Riego
+                        Localizado</header>
+                    <div class="panel-body">
+                        <ul class="nav prod-cat">
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i>Riego por Goteo</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Aspersores radio 12-18m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 13-22m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Aspersores radio 16-30m</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Aspersores radio 20-44m</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Microaspersión</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Jet 30 y Jet 35</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Jet 40 y Jet 50</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Jet 55 y 65</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Jet 70</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#" class="toggle-submenu"><i class="fa fa-angle-right"></i> Accesorios
+                                    instalación</a>
+                                <ul class="nav submenu" style="display: none;">
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- Tripodes</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Bases para aspersores</a>
+                                    </li>
+                                    <li><a href="#" class="prod-cat" data-category="Shirt">- bases con ruedas para
+                                            aspersores</a></li>
+                                    <li><a href="#" class="prod-cat" data-category="Pant">- Couplings, Hidrantes y
+                                            Válvulas de alivio</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Rango de precios -->
+                <section class="panel panel-price">
+                    <header class="panel-heading" style="margin-top: 20px;font-weight: bold;">Rango de Precios</header>
+                    <div class="price-slider-container">
+                        <div id="price-range"></div>
+                        <button id="apply-price-filter" class="btn btn-primary btn-sm mt-2">Aplicar</button>
+                    </div>
+                    <p class="px-3">$<span id="min-price">8</span> – $<span id="max-price">64</span> y más</p>
+                </section>
+
+                <!-- Filtro de marca -->
+                <section class="panel">
+                    <header class="panel-heading">Filtro</header>
+                    <div class="panel-body">
+                        <form role="form product-form">
+                            <div class="form-group">
+                                <label>Marca</label>
+                                <select class="form-control">
+                                    <option>Yusuak</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" type="submit"
+                                style="margin-top: 20px;margin-bottom: 20px;">Filtrar</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-9">
+                <!-- Pagination -->
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="pull-right">
+                            <ul class="pagination pagination-sm">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Lista de productos desktop -->
+                <div class="row product-list" id="desktop-product-list">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <section class="panel">
+                    <div class="panel-body">
+                        <div class="pull-right">
+                            <ul class="pagination pagination-sm">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="assets/js/DynamicProduct.js"></script>
+    <!-- jQuery, Bootstrap JS, noUiSlider -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js"></script>
+    <script src="assets/js/DynamicProduct.js"></script>
+
+</body>

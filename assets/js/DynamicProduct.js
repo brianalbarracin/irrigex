@@ -81,7 +81,7 @@ $(document).ready(function () {
 
         ]
 
-         ,
+        ,
         "Basesruedas": [
             { id: 38, title: "Wheeled Raingun Cart 1 in", typical: "$570000", price: "$470.000", image: "assets/src/images/Riego/Apersores/BASERUEDASCAÑON1.png?v=2" },
             { id: 39, title: "Wheeled Raingun Cart 1,5 in", typical: "$715.000", price: "$615.000", image: "assets/src/images/Riego/Apersores/BASERUEDASCAÑON1.5.png?v=2" },
@@ -98,10 +98,35 @@ $(document).ready(function () {
 
     };
 
+    //renderizacion de productos por selecion en categoría moviles
+
+    function renderMobileProducts(products) {
+        const mobileProductHtml = products.map(p => `
+                <div class="mobile-product-card">
+                    <a href="#" class="product-link" data-id="${p.id}">
+                        <div class="card h-100 product-card">
+                            <div class="position-relative">
+                                <img src="${p.image}" class="card-img-top mobile-product-image" alt="${p.title}">
+                                <span class="badge discount-badge position-absolute top-0 start-0 m-2">20%</span>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">${p.title}</h6>
+                                <div>
+                                    <span class="text-danger fw-bold price-badge">${p.price}</span>
+                                    <span class="original-price ms-2 small">${p.typical}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `).join("");
+
+        $("#mobile-products-container").html(mobileProductHtml);
+    }
 
     //renderizacion de productos por selecion en categoría
 
-    function renderProducts(category, page = 1) {
+    /*function renderProducts(category, page = 1) {
         const perPage = 6;
         const start = (page - 1) * perPage;
         const products = productsByCategory[category] || [];
@@ -132,14 +157,103 @@ $(document).ready(function () {
 
         $(".product-list").html(productHtml);
 
-        // Pagination
-        /* const pages = Math.ceil(products.length / perPage);
-         let paginationHtml = "";
-         for (let i = 1; i <= pages; i++) {
-             paginationHtml += `<li><a href="#" class="page-link" data-page="${i}" data-category="${category}">${i}</a></li>`;
-         }*/
         $(".pagination").html("");
+    }*/
+
+
+
+    function renderDesktopProducts(products) {
+        const productHtml = products.map(p => `
+                <div class="col-md-4 mb-4">
+                    <a href="#" class="product-link" data-id="${p.id}">
+                        <div class="card h-100 product-card">
+                            <div class="position-relative">
+                                <img src="${p.image}" class="card-img-top img-fluid" alt="${p.title}" style="height: 200px; object-fit: contain;">
+                                <span class="badge discount-badge position-absolute top-0 start-0 m-2">20%</span>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">${p.title}</h5>
+                                <div>
+                                    <span class="text-danger fw-bold price-badge">${p.price}</span>
+                                    <span class="original-price ms-2">${p.typical}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `).join("");
+
+        $("#desktop-product-list").html(productHtml);
     }
+
+// Función para cargar productos por categoría
+        function loadProductsByCategory(category) {
+            const products = productsByCategory[category] || [];
+            
+            if ($(window).width() < 768) {
+                renderMobileProducts(products);
+                
+                // Actualizar el título de la categoría
+                const categoryTitle = $(".prod-cat[data-category='" + category + "']").text();
+                $(".mobile-category-title").text(categoryTitle);
+            } else {
+                renderDesktopProducts(products);
+            }
+        }
+
+        // Manejar clics en categorías
+        $(".prod-cat").click(function(e) {
+            e.preventDefault();
+            const category = $(this).data("category");
+            if (category) {
+                loadProductsByCategory(category);
+            }
+        });
+
+        // Toggle para filtros móviles
+        $("#mobile-filter-toggle").click(function() {
+            $(".mobile-filter-panel").slideToggle();
+        });
+
+        // Inicializar slider de precios para móviles
+        if ($(window).width() < 768) {
+            noUiSlider.create(document.getElementById('price-range-mobile'), {
+                start: [15, 824],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 4750
+                },
+                step: 1,
+                tooltips: true,
+                format: {
+                    to: value => `${Math.round(value)}.000`,
+                    from: value => Number(value.replace('.000', ''))
+                }
+            });
+
+            document.getElementById('price-range-mobile').noUiSlider.on('update', function(values) {
+                $('#min-price-mobile').text(values[0]);
+                $('#max-price-mobile').text(values[1]);
+            });
+        }
+
+        // Cargar productos iniciales
+        if ($(window).width() < 768) {
+            // Cargar todos los productos o una categoría por defecto
+            const allProducts = Object.values(productsByCategory).flat();
+            renderMobileProducts(allProducts);
+        } else {
+            // Cargar categoría por defecto en desktop
+            loadProductsByCategory("Dress");
+        }
+
+        // Manejar redimensionamiento de pantalla
+        $(window).resize(function() {
+            if ($(window).width() < 768) {
+                $(".mobile-filter-panel").hide();
+            }
+        });
 
     // renderizacion de productos por barra search
 
@@ -287,7 +401,7 @@ $(document).ready(function () {
 
     //inicializador busqueda por categoría
 
-    $(".prod-cat").click(function (e) {
+    /*$(".prod-cat").click(function (e) {
         e.preventDefault();
 
         const category = $(this).data("category");
@@ -299,7 +413,7 @@ $(document).ready(function () {
         } else {
             console.warn("Categoría inválida o no definida:", category);
         }
-    });
+    });*/
 
     $(document).on('click', '.product-link', function (e) {
         e.preventDefault();
