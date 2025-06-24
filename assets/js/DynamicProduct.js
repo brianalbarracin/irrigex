@@ -1,10 +1,7 @@
 
 var priceSlider = null;
-let priceSliderMobile = null;
 $(document).ready(function () {
     // Dummy data by category
-
-    
 
     $(".prod-cat a").removeClass("active");
 
@@ -128,7 +125,43 @@ $(document).ready(function () {
         $("#mobile-products-container").html(mobileProductHtml);
     }
 
-    
+    //renderizacion de productos por selecion en categoría
+
+    /*function renderProducts(category, page = 1) {
+        const perPage = 6;
+        const start = (page - 1) * perPage;
+        const products = productsByCategory[category] || [];
+
+        console.log("Porque mierdas no se mnuestra este:", category);
+        const selected = products;
+        //const selected = products.slice(start, start + perPage);
+        const productHtml = selected.map(p => `
+    <div class="col-md-4 mb-4">
+        <a href="#" class="product-link" data-id="${p.id}">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="position-relative">
+                    <img src="${p.image}" class="card-img-top img-fluid selectable-image" alt="${p.title}">
+                    <span class="badge bg-danger position-absolute top-0 start-0 m-2">20% off</span>
+                    <span class="badge bg-light text-danger border position-absolute top-0 end-0 m-2">Oferta por tiempo limitado</span>
+                </div>
+                <div class="card-body text-start">
+                    <h5 class="card-title fw-semibold" style="min-height: 48px;">${p.title}</h5>
+                    <div>
+                        <span class="text-danger fw-bold fs-5">${p.price}</span>
+                        <span class="text-muted text-decoration-line-through ms-2 fs-6">Antes: ${p.typical}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+`).join("");
+
+        $(".product-list").html(productHtml);
+
+        $(".pagination").html("");
+    }*/
+
+
 
     function renderDesktopProducts(products) {
         const productHtml = products.map(p => `
@@ -192,15 +225,14 @@ $(document).ready(function () {
         $(".mobile-filter-panel").slideToggle();
     });
 
-    
-    const priceSliderMobileElement = document.getElementById('price-range-mobile');
-    if (priceSliderMobileElement && !priceSliderMobileElement.noUiSlider) {
-        noUiSlider.create(priceSliderMobileElement, {
+    // Inicializar slider de precios para móviles
+    if ($(window).width() < 768) {
+        noUiSlider.create(document.getElementById('price-range-mobile'), {
             start: [15, 824],
             connect: true,
             range: {
-                min: 0,
-                max: 4750
+                'min': 0,
+                'max': 4750
             },
             step: 1,
             tooltips: true,
@@ -209,17 +241,16 @@ $(document).ready(function () {
                 from: value => Number(value.replace('.000', ''))
             }
         });
-        priceSliderMobile = priceSliderMobileElement;
 
-        priceSliderMobileElement.noUiSlider.on('update', function (values) {
-            $('#min-price-mobile').text(`$${values[0]}`);
-            $('#max-price-mobile').text(`$${values[1]}`);
+        document.getElementById('price-range-mobile').noUiSlider.on('update', function (values) {
+            $('#min-price-mobile').text(values[0]);
+            $('#max-price-mobile').text(values[1]);
         });
     }
 
 
     $('#apply-price-filter-mobile').on('click', function () {
-        const values = priceSliderMobile.noUiSlider.get();
+        const values = document.getElementById('price-range-mobile').noUiSlider.get();
         const min = parseFloat(values[0].replace('.000', ''));
         const max = parseFloat(values[1].replace('.000', ''));
 
@@ -234,27 +265,9 @@ $(document).ready(function () {
             });
         });
 
-        // Renderiza en contenedor móvil
         renderMobileProducts(filtered);
-
-        // Actualiza el título
         $(".mobile-category-title").text("Filtrado por precio");
-
-        // Cierra panel de filtros
-        $(".mobile-filter-panel").slideUp();
     });
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Cargar productos iniciales
     if ($(window).width() < 768) {
