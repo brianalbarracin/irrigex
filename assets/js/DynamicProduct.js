@@ -200,7 +200,7 @@ $(document).ready(function () {
             $(".mobile-filter-panel").slideUp();
 
             // Actualizar solo el nombre de categoría (sin guiones ni texto largo)
-            const categoryText = $(`.prod-cat[data-category="${category}"]`).text().replace(/^-\s*/, '');
+            const categoryTitle = $(".prod-cat[data-category='" + category + "']").text().trim();
             $(".mobile-category-title").text(categoryText);
 
             // Quitar texto largo adicional si lo hubiera
