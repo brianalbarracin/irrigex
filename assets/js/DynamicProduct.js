@@ -1,5 +1,6 @@
 
 var priceSlider = null;
+var priceSliderElement=null;
 $(document).ready(function () {
     // Dummy data by category
 
