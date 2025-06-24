@@ -184,77 +184,77 @@ $(document).ready(function () {
         </div>
     `).join("");
 
-    $("#desktop-product-list").html(productHtml);
+        $(".product-list").html(productHtml);
     }
 
-// Función para cargar productos por categoría
-        function loadProductsByCategory(category) {
-            const products = productsByCategory[category] || [];
-            
-            if ($(window).width() < 768) {
-                renderMobileProducts(products);
-                
-                // Actualizar el título de la categoría
-                const categoryTitle = $(".prod-cat[data-category='" + category + "']").text();
-                $(".mobile-category-title").text(categoryTitle);
-            } else {
-                renderDesktopProducts(products);
-            }
-        }
+    // Función para cargar productos por categoría
+    function loadProductsByCategory(category) {
+        const products = productsByCategory[category] || [];
 
-        // Manejar clics en categorías
-        $(".prod-cat").click(function(e) {
-            e.preventDefault();
-            const category = $(this).data("category");
-            if (category) {
-                loadProductsByCategory(category);
-            }
-        });
-
-        // Toggle para filtros móviles
-        $("#mobile-filter-toggle").click(function() {
-            $(".mobile-filter-panel").slideToggle();
-        });
-
-        // Inicializar slider de precios para móviles
         if ($(window).width() < 768) {
-            noUiSlider.create(document.getElementById('price-range-mobile'), {
-                start: [15, 824],
-                connect: true,
-                range: {
-                    'min': 0,
-                    'max': 4750
-                },
-                step: 1,
-                tooltips: true,
-                format: {
-                    to: value => `${Math.round(value)}.000`,
-                    from: value => Number(value.replace('.000', ''))
-                }
-            });
+            renderMobileProducts(products);
 
-            document.getElementById('price-range-mobile').noUiSlider.on('update', function(values) {
-                $('#min-price-mobile').text(values[0]);
-                $('#max-price-mobile').text(values[1]);
-            });
-        }
-
-        // Cargar productos iniciales
-        if ($(window).width() < 768) {
-            // Cargar todos los productos o una categoría por defecto
-            const allProducts = Object.values(productsByCategory).flat();
-            renderMobileProducts(allProducts);
+            // Actualizar el título de la categoría
+            const categoryTitle = $(".prod-cat[data-category='" + category + "']").text();
+            $(".mobile-category-title").text(categoryTitle);
         } else {
-            // Cargar categoría por defecto en desktop
-            loadProductsByCategory("Dress");
+            renderDesktopProducts(products);
         }
+    }
 
-        // Manejar redimensionamiento de pantalla
-        $(window).resize(function() {
-            if ($(window).width() < 768) {
-                $(".mobile-filter-panel").hide();
+    // Manejar clics en categorías
+    $(".prod-cat").click(function (e) {
+        e.preventDefault();
+        const category = $(this).data("category");
+        if (category) {
+            loadProductsByCategory(category);
+        }
+    });
+
+    // Toggle para filtros móviles
+    $("#mobile-filter-toggle").click(function () {
+        $(".mobile-filter-panel").slideToggle();
+    });
+
+    // Inicializar slider de precios para móviles
+    if ($(window).width() < 768) {
+        noUiSlider.create(document.getElementById('price-range-mobile'), {
+            start: [15, 824],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 4750
+            },
+            step: 1,
+            tooltips: true,
+            format: {
+                to: value => `${Math.round(value)}.000`,
+                from: value => Number(value.replace('.000', ''))
             }
         });
+
+        document.getElementById('price-range-mobile').noUiSlider.on('update', function (values) {
+            $('#min-price-mobile').text(values[0]);
+            $('#max-price-mobile').text(values[1]);
+        });
+    }
+
+    // Cargar productos iniciales
+    if ($(window).width() < 768) {
+        // Cargar todos los productos o una categoría por defecto
+        const allProducts = Object.values(productsByCategory).flat();
+        renderMobileProducts(allProducts);
+    } else {
+        // Cargar categoría por defecto en desktop
+        loadProductsByCategory("Dress");
+    }
+
+    // Manejar redimensionamiento de pantalla
+    $(window).resize(function () {
+        if ($(window).width() < 768) {
+            $(".mobile-filter-panel").hide();
+        }
+    });
 
     // renderizacion de productos por barra search
 
