@@ -390,7 +390,7 @@ $(document).ready(function () {
 
         Object.keys(productsByCategory).forEach(category => {
             productsByCategory[category].forEach(product => {
-                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+                const price = parseFloat(product.price.replace('$', '').replace('.', '.').replace(',', '.'));
                 if (price >= min && price <= max) {
                     filtered.push(product);
                 }
