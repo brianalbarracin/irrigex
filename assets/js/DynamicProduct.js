@@ -396,7 +396,7 @@ $(document).ready(function () {
                 }
             });
         });
-
+          console.log(filtered);
         renderMobileProducts(filtered);
         $(".mobile-category-title").text("Filtrado por precio");
         $(".mobile-filter-panel").slideUp(); // si quieres que se oculte al aplicar
