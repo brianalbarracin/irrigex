@@ -22,6 +22,57 @@
 
         /* Estilos para móviles */
         @media (max-width: 768px) {
+
+
+
+            .noUi-connect {
+                background: #007bff;
+            }
+
+            .noUi-handle {
+                width: 20px;
+                height: 20px;
+                right: -10px;
+                top: -8px;
+                border-radius: 50%;
+                background: #007bff;
+                box-shadow: none;
+                border: none;
+            }
+
+            /* Botones */
+            .btn-apply,
+            .btn-filter {
+                width: 100%;
+                margin-top: 15px;
+                padding: 10px;
+                font-weight: bold;
+            }
+
+            /* Textos de precio */
+            .price-range-values {
+                text-align: center;
+                font-size: 14px;
+                margin-top: 10px;
+                color: #495057;
+            }
+
+            /* Lista de categorías */
+            .mobile-category-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .mobile-category-list li {
+                padding: 8px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .mobile-category-list a {
+                color: #333;
+                text-decoration: none;
+            }
+
             .mobile-category-header {
                 background-color: #f7f7f7;
                 padding: 15px;
@@ -83,6 +134,17 @@
                 display: block;
                 margin-bottom: 15px;
                 padding: 0 15px;
+            }
+
+            .mobile-filter-panel {
+                padding: 15px;
+                background: #fff;
+            }
+
+            #price-range-mobile {
+                margin: 20px 0;
+                height: 6px;
+                background: #e9ecef;
             }
 
             /* Estilo para el botón de filtros */
@@ -430,15 +492,14 @@
                 </section>
 
                 <!-- Rango de precios -->
-                <section class="panel panel-price">
-                    <header class="panel-heading" style="margin-top: 20px;font-weight: bold;">Rango de Precios</header>
-                    <div class="price-slider-container">
+                <section class="panel price-panel">
+                    <header class="panel-heading">Rango de Precios</header>
+                    <div class="panel-body">
                         <div id="price-range-mobile"></div>
-                        <button id="apply-price-filter-mobile" class="btn btn-primary btn-sm mt-2">Aplicar</button>
+                        <button id="apply-price-filter-mobile" class="btn btn-primary btn-apply">Aplicar</button>
+                        <p class="price-range-values">$<span id="min-price-mobile">15.000</span> – $<span
+                                id="max-price-mobile">4.750.000</span></p>
                     </div>
-                    <p class="px-3">$<span id="min-price-mobile">15.000</span> – $<span
-                            id="max-price-mobile">4750.000</span> y más
-                    </p>
                 </section>
 
                 <!-- Filtro de marca -->
