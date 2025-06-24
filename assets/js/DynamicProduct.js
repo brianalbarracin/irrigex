@@ -272,7 +272,19 @@ $(document).ready(function () {
 
 
     function initMobileSlider() {
+
+
+        console.log('Intentando inicializar slider móvil...');
         const mobileSliderElement = document.getElementById('price-range-mobile');
+        if (!mobileSliderElement) {
+            console.error('Elemento price-range-mobile no encontrado en el DOM');
+            return;
+        }
+
+        if (mobileSliderElement.noUiSlider) {
+            console.log('Slider móvil ya estaba inicializado');
+            return;
+        }
 
         // Verificar si el elemento existe y no tiene slider ya creado
         if (mobileSliderElement && !mobileSliderElement.noUiSlider) {
@@ -296,6 +308,10 @@ $(document).ready(function () {
                 $('#max-price-mobile').text(values[1]);
             });
         }
+
+        
+        // Resto del código de inicialización...
+        console.log('Slider móvil inicializado correctamente');
     }
 
     // Inicializar slider móvil al cargar si es móvil
