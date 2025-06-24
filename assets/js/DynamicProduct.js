@@ -227,7 +227,7 @@ $(document).ready(function () {
     });
 
     // Inicializar slider de precios para móviles
-    /**/if ($(window).width() < 768) {
+    /*if ($(window).width() < 768) {
         noUiSlider.create(document.getElementById('price-range-mobile'), {
             start: [15, 824],
             connect: true,
@@ -247,31 +247,12 @@ $(document).ready(function () {
             $('#min-price-mobile').text(values[0]);
             $('#max-price-mobile').text(values[1]);
         });
-    }
+    }*/
 
 
-    $('#apply-price-filter-mobile').on('click', function () {
-        const values = document.getElementById('price-range-mobile').noUiSlider.get();
-        const min = parseFloat(values[0].replace('.000', ''));
-        const max = parseFloat(values[1].replace('.000', ''));
-
-        let filtered = [];
-
-        Object.keys(productsByCategory).forEach(category => {
-            productsByCategory[category].forEach(product => {
-                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
-                if (price >= min && price <= max) {
-                    filtered.push(product);
-                }
-            });
-        });
-
-        renderMobileProducts(filtered);
-        $(".mobile-category-title").text("Filtrado por precio");
-    });
 
 
-    /*function initMobileSlider() {
+    function initMobileSlider() {
 
 
         console.log('Intentando inicializar slider móvil...');
@@ -309,10 +290,49 @@ $(document).ready(function () {
             });
         }
 
-        
+
         // Resto del código de inicialización...
         console.log('Slider móvil inicializado correctamente');
     }
+
+
+    $('#apply-price-filter-mobile').on('click', function () {
+        console.log("Botón aplicar clickeado");
+        const slider = document.getElementById('price-range-mobile');
+        if (!slider || !slider.noUiSlider) {
+            console.warn("Slider móvil no inicializado correctamente.");
+            return;
+        }
+
+        const values = slider.noUiSlider.get();
+        const min = parseFloat(values[0].replace('.000', ''));
+        const max = parseFloat(values[1].replace('.000', ''));
+
+        console.log("Valores seleccionados:", min, max);
+
+        let filtered = [];
+
+        Object.keys(productsByCategory).forEach(category => {
+            productsByCategory[category].forEach(product => {
+                const price = parseFloat(
+                    product.price
+                        .replace(/\./g, '')   // elimina todos los puntos: "$1.200.000" → "1200000"
+                        .replace('$', '')
+                        .replace(',', '.')
+                );
+
+                if (price >= min && price <= max) {
+                    filtered.push(product);
+                }
+            });
+        });
+
+        console.log("Productos filtrados:", filtered.length);
+        renderMobileProducts(filtered);
+        $(".mobile-category-title").text("Filtrado por precio");
+        $(".mobile-filter-panel").slideUp();
+    });
+
 
     // Inicializar slider móvil al cargar si es móvil
     function checkMobileAndInit() {
@@ -333,7 +353,7 @@ $(document).ready(function () {
             }
         });
     });
-*/
+
     // Cargar productos iniciales
     if ($(window).width() < 768) {
         // Cargar todos los productos o una categoría por defecto
