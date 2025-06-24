@@ -196,9 +196,15 @@ $(document).ready(function () {
         if ($(window).width() < 768) {
             renderMobileProducts(products);
 
-            // Actualizar el título de la categoría
-            const categoryTitle = $(".prod-cat[data-category='" + category + "']").text();
-            $(".mobile-category-title").text(categoryTitle);
+            // Cerrar el panel de filtros y scroll automático
+            $(".mobile-filter-panel").slideUp();
+
+            // Actualizar solo el nombre de categoría (sin guiones ni texto largo)
+            const categoryText = $(`.prod-cat[data-category="${category}"]`).text().replace(/^-\s*/, '');
+            $(".mobile-category-title").text(categoryText);
+
+            // Quitar texto largo adicional si lo hubiera
+            $(".mobile-category-description").hide();
         } else {
             renderDesktopProducts(products);
         }
@@ -240,6 +246,27 @@ $(document).ready(function () {
             $('#max-price-mobile').text(values[1]);
         });
     }
+
+
+    $('#apply-price-filter-mobile').on('click', function () {
+    const values = document.getElementById('price-range-mobile').noUiSlider.get();
+    const min = parseFloat(values[0].replace('.000', ''));
+    const max = parseFloat(values[1].replace('.000', ''));
+
+    let filtered = [];
+
+    Object.keys(productsByCategory).forEach(category => {
+        productsByCategory[category].forEach(product => {
+            const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+            if (price >= min && price <= max) {
+                filtered.push(product);
+            }
+        });
+    });
+
+    renderMobileProducts(filtered);
+    $(".mobile-category-title").text("Filtrado por precio");
+});
 
     // Cargar productos iniciales
     if ($(window).width() < 768) {
