@@ -200,11 +200,11 @@ $(document).ready(function () {
             $(".mobile-filter-panel").slideUp();
 
             // Actualizar solo el nombre de categoría (sin guiones ni texto largo)
-            const categoryTitle = $(".prod-cat[data-category='" + category + "']").text().trim();
+            const categoryText = $(`.prod-cat[data-category="${category}"]`).text().trim().replace(/^-\s*/, '');
             $(".mobile-category-title").text(categoryText);
 
             // Quitar texto largo adicional si lo hubiera
-            $(".mobile-category-description").hide();
+           // $(".mobile-category-description").hide();
         } else {
             renderDesktopProducts(products);
         }
@@ -249,24 +249,24 @@ $(document).ready(function () {
 
 
     $('#apply-price-filter-mobile').on('click', function () {
-    const values = document.getElementById('price-range-mobile').noUiSlider.get();
-    const min = parseFloat(values[0].replace('.000', ''));
-    const max = parseFloat(values[1].replace('.000', ''));
+        const values = document.getElementById('price-range-mobile').noUiSlider.get();
+        const min = parseFloat(values[0].replace('.000', ''));
+        const max = parseFloat(values[1].replace('.000', ''));
 
-    let filtered = [];
+        let filtered = [];
 
-    Object.keys(productsByCategory).forEach(category => {
-        productsByCategory[category].forEach(product => {
-            const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
-            if (price >= min && price <= max) {
-                filtered.push(product);
-            }
+        Object.keys(productsByCategory).forEach(category => {
+            productsByCategory[category].forEach(product => {
+                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+                if (price >= min && price <= max) {
+                    filtered.push(product);
+                }
+            });
         });
-    });
 
-    renderMobileProducts(filtered);
-    $(".mobile-category-title").text("Filtrado por precio");
-});
+        renderMobileProducts(filtered);
+        $(".mobile-category-title").text("Filtrado por precio");
+    });
 
     // Cargar productos iniciales
     if ($(window).width() < 768) {
