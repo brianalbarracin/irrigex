@@ -1,7 +1,10 @@
 
 var priceSlider = null;
+let priceSliderMobile = null;
 $(document).ready(function () {
     // Dummy data by category
+
+    priceSliderMobile = initSlider('price-range-mobile', '#min-price-mobile', '#max-price-mobile');
 
     $(".prod-cat a").removeClass("active");
 
@@ -226,13 +229,58 @@ $(document).ready(function () {
     });
 
     // Inicializar slider de precios para móviles
-    if ($(window).width() < 768) {
-        noUiSlider.create(document.getElementById('price-range-mobile'), {
+    /*if ($(window).width() < 768) {
+         noUiSlider.create(document.getElementById('price-range-mobile'), {
+             start: [15, 824],
+             connect: true,
+             range: {
+                 'min': 0,
+                 'max': 4750
+             },
+             step: 1,
+             tooltips: true,
+             format: {
+                 to: value => `${Math.round(value)}.000`,
+                 from: value => Number(value.replace('.000', ''))
+             }
+         });
+ 
+         document.getElementById('price-range-mobile').noUiSlider.on('update', function (values) {
+             $('#min-price-mobile').text(values[0]);
+             $('#max-price-mobile').text(values[1]);
+         });
+     }
+ 
+ 
+     $('#apply-price-filter-mobile').on('click', function () {
+         const values = document.getElementById('price-range-mobile').noUiSlider.get();
+         const min = parseFloat(values[0].replace('.000', ''));
+         const max = parseFloat(values[1].replace('.000', ''));
+ 
+         let filtered = [];
+ 
+         Object.keys(productsByCategory).forEach(category => {
+             productsByCategory[category].forEach(product => {
+                 const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+                 if (price >= min && price <= max) {
+                     filtered.push(product);
+                 }
+             });
+         });
+ 
+         renderMobileProducts(filtered);
+         $(".mobile-category-title").text("Filtrado por precio");
+     });*/
+
+
+    const priceSliderMobileElement = document.getElementById('price-range-mobile');
+    if (priceSliderMobileElement && !priceSliderMobileElement.noUiSlider) {
+        noUiSlider.create(priceSliderMobileElement, {
             start: [15, 824],
             connect: true,
             range: {
-                'min': 0,
-                'max': 4750
+                min: 0,
+                max: 4750
             },
             step: 1,
             tooltips: true,
@@ -242,15 +290,15 @@ $(document).ready(function () {
             }
         });
 
-        document.getElementById('price-range-mobile').noUiSlider.on('update', function (values) {
-            $('#min-price-mobile').text(values[0]);
-            $('#max-price-mobile').text(values[1]);
+        priceSliderMobileElement.noUiSlider.on('update', function (values) {
+            $('#min-price-mobile').text(`$${values[0]}`);
+            $('#max-price-mobile').text(`$${values[1]}`);
         });
     }
 
 
     $('#apply-price-filter-mobile').on('click', function () {
-        const values = document.getElementById('price-range-mobile').noUiSlider.get();
+        const values = priceSliderMobile.noUiSlider.get();
         const min = parseFloat(values[0].replace('.000', ''));
         const max = parseFloat(values[1].replace('.000', ''));
 
@@ -265,9 +313,27 @@ $(document).ready(function () {
             });
         });
 
+        // Renderiza en contenedor móvil
         renderMobileProducts(filtered);
+
+        // Actualiza el título
         $(".mobile-category-title").text("Filtrado por precio");
+
+        // Cierra panel de filtros
+        $(".mobile-filter-panel").slideUp();
     });
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Cargar productos iniciales
     if ($(window).width() < 768) {
