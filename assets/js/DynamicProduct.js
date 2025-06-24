@@ -249,27 +249,8 @@ $(document).ready(function () {
         });
     }
 
-
-    $('#apply-price-filter-mobile').on('click', function () {
-        const values = document.getElementById('price-range-mobile').noUiSlider.get();
-        const min = parseFloat(values[0].replace('.000', ''));
-        const max = parseFloat(values[1].replace('.000', ''));
-
-        let filtered = [];
-
-        Object.keys(productsByCategory).forEach(category => {
-            productsByCategory[category].forEach(product => {
-                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
-                if (price >= min && price <= max) {
-                    filtered.push(product);
-                }
-            });
-        });
-
-        renderMobileProducts(filtered);
-        $(".mobile-category-title").text("Filtrado por precio");
-    });*/
-
+*/
+    
 
     function initMobileSlider() {
 
@@ -313,6 +294,31 @@ $(document).ready(function () {
         // Resto del código de inicialización...
         console.log('Slider móvil inicializado correctamente');
     }
+
+
+
+
+
+    $('#apply-price-filter-mobile').on('click', function () {
+        const values = document.getElementById('price-range-mobile').noUiSlider.get();
+        const min = parseFloat(values[0].replace('.000', ''));
+        const max = parseFloat(values[1].replace('.000', ''));
+
+        let filtered = [];
+
+        Object.keys(productsByCategory).forEach(category => {
+            productsByCategory[category].forEach(product => {
+                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+                if (price >= min && price <= max) {
+                    filtered.push(product);
+                }
+            });
+        });
+
+        renderMobileProducts(filtered);
+        $(".mobile-category-title").text("Filtrado por precio");
+    });
+
 
     // Inicializar slider móvil al cargar si es móvil
     function checkMobileAndInit() {
