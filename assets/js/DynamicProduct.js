@@ -1,3 +1,4 @@
+
 var priceSlider = null;
 $(document).ready(function () {
     // Dummy data by category
