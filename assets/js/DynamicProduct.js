@@ -252,7 +252,7 @@ $(document).ready(function () {
 
 
 
-    function initMobileSlider() {
+    /*function initMobileSlider() {
 
 
         console.log('Intentando inicializar slider móvil...');
@@ -352,6 +352,54 @@ $(document).ready(function () {
                 initMobileSlider();
             }
         });
+    });
+*/
+
+    const mobileSliderElement = document.getElementById('price-range-mobile');
+    if (mobileSliderElement && !mobileSliderElement.noUiSlider) {
+        noUiSlider.create(mobileSliderElement, {
+            start: [15, 824],
+            connect: true,
+            range: {
+                min: 0,
+                max: 4750
+            },
+            step: 1,
+            tooltips: true,
+            format: {
+                to: value => `${Math.round(value)}.000`,
+                from: value => Number(value.replace('.000', ''))
+            }
+        });
+
+        priceSliderMobile = mobileSliderElement;
+
+        mobileSliderElement.noUiSlider.on('update', function (values) {
+            $('#min-price-mobile').text(values[0]);
+            $('#max-price-mobile').text(values[1]);
+        });
+    }
+
+
+    $('#apply-price-filter-mobile').on('click', function () {
+        const values = priceSliderMobile.noUiSlider.get();
+        const min = parseFloat(values[0]);
+        const max = parseFloat(values[1]);
+
+        let filtered = [];
+
+        Object.keys(productsByCategory).forEach(category => {
+            productsByCategory[category].forEach(product => {
+                const price = parseFloat(product.price.replace('$', '').replace('.', '').replace(',', '.'));
+                if (price >= min && price <= max) {
+                    filtered.push(product);
+                }
+            });
+        });
+
+        renderMobileProducts(filtered);
+        $(".mobile-category-title").text("Filtrado por precio");
+        $(".mobile-filter-panel").slideUp(); // si quieres que se oculte al aplicar
     });
 
     // Cargar productos iniciales
